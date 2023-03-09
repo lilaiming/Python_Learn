@@ -3,8 +3,10 @@
 # Email:essid@qq.com
 
 
-print(test1)
-print(test2)
-print(test3)
+import os
+
+qytang1 = open('qytang1.txt', 'w')
+
+qytang1.write('test file 21\n')
 
 

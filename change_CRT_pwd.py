@@ -7,15 +7,14 @@ import os
 def modify_bacth(path, pwd, username):
     files = os.listdir(path)
 
-    for filename in files:
-        # pass_name = [
-        # "ASA-Tenant-01.ini",    #排除不需要改密码的文件
-        # ]
-        # if filename in pass_name:
-        #     continue
-
-        if "Tenant" in filename:    # 排除关键词文件
-            continue
+    for filename in files:          #排除不需要改密码的文件
+         pass_name = [
+         "ISE-PAN-CNBJ.ini","LenovoCppmBJ01.ini"
+         ]
+         if filename in pass_name:
+             continue
+        if "EAS-C2960-CNTSN04-" in filename:    # 排除关键词文件
+             continue
         filepath = os.path.join(path, filename)
         if os.path.isdir(filepath):
             modify_bacth(filepath, pwd, username)
@@ -41,7 +40,7 @@ def modify_bacth(path, pwd, username):
 def main():
     path = input("请输入需要更改的Sessions目录绝对路径：")
     username = input("请输入用户名（默认为lilm6），使用默认请回车下一步：")
-    new_pwd = input("请输入加密后密码：")
+    new_pwd = input("请输入加密后密码：") #在Sessions内查看这个新.ini文件,S:"Password V2"=后的是密码
     if not new_pwd:
         exit()
     if not path:

@@ -6,7 +6,6 @@ import os
 
 def modify_bacth(path, pwd, username):
     files = os.listdir(path)
-
     for filename in files:          #排除不需要改密码的文件
          pass_name = [
          "ISE-PAN-CNBJ.ini","LenovoCppmBJ01.ini"

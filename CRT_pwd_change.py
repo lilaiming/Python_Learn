@@ -13,6 +13,8 @@ def modify_bacth(path, pwd, username):
         pass_name = [       # 如果需要忽略某个文件夹及文件夹下的文件，在此列表中加入名字即可。
             "ISE-PAN-CNBJ.ini",
             "LenovoCppmBJ01.ini",
+            "ppny019.ini",
+            "ppny020.ini"
         ]
         if filename in pass_name:
             continue

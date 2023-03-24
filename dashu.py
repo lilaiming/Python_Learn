@@ -40,32 +40,33 @@
 # print (c)
 #
 
+#
+# ip_list = []
+#
+# prefix = '10.1.1.'
+# perfix_len = '/24'
+#
+# for i in range(1,9):
+#     ip = prefix + str(i) + perfix_len
+#     ip_list.append(ip)
+#
+# print(ip_list)
+#
+# abc = len(ip_list)
+# print (abc)
+#
 
-ip_list = []
+import paramiko
+import time
 
-prefix = '10.1.1.'
-perfix_len = '/24'
+ip = "10.109.64.136";user='lenovo';password='Lenovo,!'
 
-for i in range(1,9):
-    ip = prefix + str(i) + perfix_len
-    ip_list.append(ip)
-
-print(ip_list)
-
-abc = len(ip_list)
-print (abc)
-
-
-
-
-
-
-
-
-
-
-
-
+ssh1 = paramiko.SSHClient()
+ssh1.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh1.connect(hostname=ip,port=22,username=user,password=password,timeout=5,
+             allow_agent=False,look_for_keys=False)
+time.sleep(15)
+ssh1.close()
 
 
 

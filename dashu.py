@@ -41,20 +41,20 @@
 #
 
 
-# ip_list = []
-#
-# prefix = '10.1.1.'
-# perfix_len = '/24'
-#
-# for i in range(1,9):
-#     ip = prefix + str(i) + perfix_len
-#     ip_list.append(ip)
-#
-# print(ip_list)
-#
-# abc = len(ip_list)
-# print (abc)
-#
+ip_list = []
+
+prefix = '10.1.1.'
+perfix_len = '/24'
+
+for i in range(1,9):
+    ip = prefix + str(i) + perfix_len
+    ip_list.append(ip)
+
+print(ip_list)
+
+abc = len(ip_list)
+print (abc)
+
 
 
 

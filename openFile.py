@@ -5,9 +5,9 @@
 
 import os
 
-qytang1 = open('qytang1.txt', 'w')
+qytang1 = open('D:/OneDrive - Lenovo/Python/openfile/qytang1.txt', 'w')
+
 qytang1.write('test1 file\n')
+qytang1.write('Hello World\n')
 
-
-
-
+qytang1.close()

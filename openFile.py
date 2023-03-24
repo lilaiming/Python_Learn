@@ -6,7 +6,7 @@
 import os
 
 qytang1 = open('qytang1.txt', 'w')
-qytang1.write('test file\n')
+qytang1.write('test1 file\n')
 
 
 

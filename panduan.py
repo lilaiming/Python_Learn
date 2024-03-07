@@ -12,6 +12,6 @@ def panduan(a,b) :
     else:
         print ('Error')
     return qq
-x = panduan(3,6)
+x = panduan(8,7)
 print(x)
 

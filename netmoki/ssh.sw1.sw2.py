@@ -5,7 +5,7 @@
 # 第一种情况：生产网络里所有设备的username, password, port这些参数都一样
 from netmiko import ConnectHandler
 
-with open('ip_list.txt') as f:
+with open('../2.ip_list.txt') as f:
     for ips in f.readlines():
         ip = ips.strip()
         connection_info = {
@@ -21,17 +21,18 @@ with open('ip_list.txt') as f:
 
 
 #第二种情况：生产网络里设备的username, password, port这些参数不尽相同
-# import json
-# from netmiko import ConnectHandler
-#
-# with open("switches.json") as f:
-#     devices = json.load(f)
-# for device in devices:
-#     with ConnectHandler(**device['connection']) as conn:
-#         hostname = device['name']
-#         print (f'已经成功登陆交换机{hostname}')
-#         output = conn.send_command('dis cu | in sysname')
-#         print(output)
+
+import json
+from netmiko import ConnectHandler
+
+with open("ssh.sw1.2.json") as f:
+    devices = json.load(f)
+for device in devices:
+    with ConnectHandler(**device['connection']) as conn:
+        hostname = device['name']
+        print (f'已经成功登陆交换机{hostname}')
+        output = conn.send_command('dis cu | in sysname')
+        print(output)
 
 
 

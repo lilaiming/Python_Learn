@@ -43,7 +43,7 @@ with ConnectHandler(**sw1) as connect:
                                          strip_command=False)
 
     # 检查是否存在提示符
-    if 'Continue? [Y/N]:' in output:
+    if 'Continue? [Y/N]' in output:
         # 输入指定的响应（这里是输入Y）
         output += connect.send_command_timing(command_string="Y",
                                               strip_prompt=False,

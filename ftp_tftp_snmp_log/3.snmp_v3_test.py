@@ -51,7 +51,7 @@ def get_device_name(ip, username, auth_protocol, auth_password, priv_protocol, p
         print(f"设备名称： {varBinds[0][1].prettyPrint()}")
 
 # 读取IP地址列表文件
-ip_list = read_ip_list('2.ip_list.txt')
+ip_list = read_ip_list('../2.ip_list.txt')
 
 # SNMP v3 配置信息
 username = 'snmp_immd'
@@ -71,21 +71,23 @@ with ThreadPoolExecutor(max_workers=5) as executor:
 
 
 
-#
+
 # S5700交换机配置
 # snmp-agent
 # snmp-agent trap enable
+# y
 # snmp-agent sys-info version v3
 # snmp-agent group v3 snmp_immd authentication
 # snmp-agent group v3 snmp_immd privacy  read-view iso write-view iso notify-view iso
 # snmp-agent mib-view included iso iso
 # snmp-agent usm-user v3 snmp_immd snmp_immd cipher authentication-mode sha Password privacy-mode des56 Password
-##
+# #
 
-#
+
 # CE12800交换机配置
 # snmp-agent
 # snmp-agent trap enable
+# y
 # snmp-agent sys-info version v3
 # snmp-agent group v3 snmp_immd authentication
 # snmp-agent mib-view included iso iso
@@ -97,4 +99,3 @@ with ThreadPoolExecutor(max_workers=5) as executor:
 # snmp-agent usm-user v3 snmp_immd privacy-mode des56
 # Password
 # Password
-# #

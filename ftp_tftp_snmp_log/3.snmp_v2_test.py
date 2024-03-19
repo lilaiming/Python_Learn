@@ -54,7 +54,7 @@ def get_device_name(ip, community):
 
 
 # 读取IP地址列表文件
-ip_list = read_ip_list('2.ip_list.txt')
+ip_list = read_ip_list('../2.ip_list.txt')
 
 # 使用多线程处理每个IP地址
 with ThreadPoolExecutor(max_workers=5) as executor:
@@ -62,9 +62,10 @@ with ThreadPoolExecutor(max_workers=5) as executor:
         community = 'Password'  # 输入交换机配置的community
         executor.submit(test_snmp_v2, ip, community)
 
-# 交换机配置：
+# # 交换机配置：
 # snmp-agent
 # snmp-agent trap enable
+# y
 # snmp-agent sys-info version v2c
 # snmp-agent community read cipher Password
 

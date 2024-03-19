@@ -25,11 +25,14 @@ stop_server(21)
 # 停止TFTP服务器
 stop_server(69)
 
+# 停止日志服务器
+stop_server(514)
+
 # ###
 # C:\Users\lilm6>netstat -ano|findstr 0.0.0.0:21
 #   TCP    0.0.0.0:21             0.0.0.0:0              LISTENING       26348
 #
-# C:\Users\lilm6>taskkill -pid 26348
+# C:\Users\lilm6>taskkill -pid 26348 /f
 # 成功: 给进程发送了终止信号，进程的 PID 为 26348。
 # ###
 

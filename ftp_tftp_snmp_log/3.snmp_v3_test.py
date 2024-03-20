@@ -55,12 +55,11 @@ ip_list = read_ip_list('../2.ip_list.txt')
 
 # SNMP v3 配置信息
 username = 'snmp_immd'
-auth_password = 'Password'
-priv_password = 'Password'
+auth_password = 'ANdev2RO'
+priv_password = 'ANdev2RO'
 auth_protocol = usmHMACSHAAuthProtocol
 priv_protocol = usmDESPrivProtocol
 # auth_protocol = usmHMACSHA2-256AuthProtocol
-# auth_protocol = usmHMACSHA2-512AuthProtocol
 # priv_protocol = usmAesCfb256Protocol
 
 # 使用多线程处理每个IP地址

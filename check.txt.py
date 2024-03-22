@@ -3,6 +3,7 @@
 # Email:essid@qq.com
 
 import os
+import concurrent.futures
 
 folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
 commands_file = '2.cfg.cmd.txt'
@@ -35,17 +36,19 @@ def search_text_in_file(file_path, search_text):
             continue
     return count
 
-# 递归遍历文件夹中的所有文件
-for root, dirs, files in os.walk(folder_path):
-    for filename in files:
-        file_path = os.path.join(root, filename)
-        if file_path.endswith(('.txt', '.cfg', '.py', '.log')):
-            with open(commands_file) as f:
-                for line in f:
-                    command = line.strip()
-                    count = search_text_in_file(file_path, command)
-                    if count > 0:
-                        print(f"文件 {filename} 中命令 {command} 出现了 {count} 次")
+def process_file(file_path):
+    if file_path.endswith(('.txt', '.cfg', '.py', '.log')):
+        for command in search_texts:
+            count = search_text_in_file(file_path, command)
+            if count > 0:
+                print(f"文件 {filename} 中命令 {command} 出现了 {count} 次")
+
+# 递归遍历文件夹中的所有文件，并使用多线程进行并行处理
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    for root, dirs, files in os.walk(folder_path):
+        for filename in files:
+            file_path = os.path.join(root, filename)
+            executor.submit(process_file, file_path)
 
 print("全部命令的文件名:")
 for root, dirs, files in os.walk(folder_path):

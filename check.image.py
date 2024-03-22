@@ -28,13 +28,13 @@
 #     return text
 #
 # def process_image(image_path):
-#     results = []
+#     results = {}
 #     text = search_text_in_image(image_path)
 #     for command in search_commands:
 #         occurrences = text.count(command)
 #         if occurrences > 0:
-#             results.extend([command] * occurrences)
-#     return os.path.basename(image_path), set(results)
+#             results[command] = occurrences
+#     return os.path.basename(image_path), results
 #
 # if __name__ == '__main__':
 #     # 递归遍历 output_folder 文件夹中的所有图片文件
@@ -49,7 +49,10 @@
 #     missing_commands = {}
 #     for image_path in image_paths:
 #         image_name, results = process_image(image_path)
-#         missing_commands[image_path] = set(search_commands) - results
+#         missing_commands[image_path] = set(search_commands) - set(results.keys())
+#         print(f"文件 {image_name} 中命令出现次数:")
+#         for command, count in results.items():
+#             print(f"命令 {command}: {count} 次")
 #
 #     # 输出包含全部命令的文件名
 #     print("包含全部命令的文件名:")
@@ -65,6 +68,7 @@
 #             print(f"文件 {filename} 缺少命令:")
 #             for missing_command in missing_command_set:
 #                 print(missing_command)
+
 
 import os
 import pytesseract
@@ -114,9 +118,10 @@ if __name__ == '__main__':
     for image_path in image_paths:
         image_name, results = process_image(image_path)
         missing_commands[image_path] = set(search_commands) - set(results.keys())
-        print(f"文件 {image_name} 中命令出现次数:")
-        for command, count in results.items():
-            print(f"命令 {command}: {count} 次")
+        if results:
+            print(f"文件 {image_name} 中命令出现次数:")
+            for command, count in results.items():
+                print(f"命令 {command}: {count} 次")
 
     # 输出包含全部命令的文件名
     print("包含全部命令的文件名:")
@@ -132,9 +137,6 @@ if __name__ == '__main__':
             print(f"文件 {filename} 缺少命令:")
             for missing_command in missing_command_set:
                 print(missing_command)
-
-
-
 
 
 

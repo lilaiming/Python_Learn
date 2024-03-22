@@ -6,6 +6,8 @@ import os
 import pandas as pd
 from docx import Document
 from pptx import Presentation
+import PyPDF2
+import concurrent.futures
 
 folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
 commands_file = '2.cfg.cmd.txt'
@@ -15,8 +17,16 @@ with open(commands_file) as f:
     search_texts = {text.strip() for text in f.readlines()}
 
 missing_commands = {}  # 缺少的命令字典，用于存储文件名和对应的缺少命令列表
-all_files = {os.path.join(root, filename) for root, _, files in os.walk(folder_path) for filename in files}
+all_files = []
 
+# 生成文件列表的生成器
+def file_generator(folder_path):
+    for file_name in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, file_name)
+        if os.path.isfile(file_path):
+            yield file_path
+
+# 搜索文本并返回找到的命令
 def search_text_in_excel(excel_path, search_texts):
     try:
         df = pd.read_excel(excel_path)
@@ -58,18 +68,46 @@ def search_text_in_ppt(ppt_path, search_texts):
         print(f"读取 {ppt_path} 时出现错误: {e}")
         return set()
 
-# 递归遍历文件夹中的所有文件
-for file_path in all_files:
+def search_text_in_pdf(pdf_path, search_texts):
+    try:
+        with open(pdf_path, 'rb') as file:
+            reader = PyPDF2.PdfReader(file)
+            found_commands = set()
+            for page in reader.pages:
+                text = page.extract_text()
+                for search_text in search_texts:
+                    if search_text in text:
+                        found_commands.add(search_text)
+            missing_commands[pdf_path] = search_texts - found_commands
+            return found_commands
+    except Exception as e:
+        print(f"读取 {pdf_path} 时出现错误: {e}")
+        return set()
+
+# 处理单个文件
+def process_file(file_path):
     file_ext = os.path.splitext(file_path)[1].lower()
     if file_ext in ['.xlsx', '.xls']:
-        found_commands = search_text_in_excel(file_path, search_texts)
+        return search_text_in_excel(file_path, search_texts)
     elif file_ext in ['.docx', '.doc']:
-        found_commands = search_text_in_word(file_path, search_texts)
+        return search_text_in_word(file_path, search_texts)
     elif file_ext in ['.pptx', '.ppt']:
-        found_commands = search_text_in_ppt(file_path, search_texts)
+        return search_text_in_ppt(file_path, search_texts)
+    elif file_ext == '.pdf':
+        return search_text_in_pdf(file_path, search_texts)
     else:
-        continue
+        return set()
 
+# 生成文件列表
+for file_path in file_generator(folder_path):
+    all_files.append(file_path)
+
+# 并发处理文件
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    results = executor.map(process_file, all_files)
+
+# 输出结果
+for file_path, found_commands in zip(all_files, results):
     if found_commands:
         filename = os.path.basename(file_path)
         print(f"文件 {filename} 中命令 {', '.join(found_commands)} 出现了 {len(found_commands)} 次")
@@ -86,3 +124,8 @@ for file_path, missing_command_set in missing_commands.items():
         print(f"文件 {filename} 缺少命令:")
         for missing_command in missing_command_set:
             print(missing_command)
+
+
+
+
+

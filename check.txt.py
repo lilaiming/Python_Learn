@@ -41,7 +41,8 @@ def process_file(file_path):
         for command in search_texts:
             count = search_text_in_file(file_path, command)
             if count > 0:
-                print(f"文件 {filename} 中命令 {command} 出现了 {count} 次")
+                file_name = os.path.basename(file_path)
+                print(f"文件 {file_name} 中命令 {command} 出现了 {count} 次")
 
 # 递归遍历文件夹中的所有文件，并使用多线程进行并行处理
 with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -56,7 +57,7 @@ for root, dirs, files in os.walk(folder_path):
         file_path = os.path.join(root, filename)
         if file_path.endswith(('.txt', '.cfg', '.py', '.log')):
             file_name = os.path.basename(file_path)
-            if file_name not in missing_commands:
+            if file_name not in missing_commands and all(command in open(file_path).read() for command in search_texts):
                 print(file_name)
 
 print("缺少命令的文件名:")

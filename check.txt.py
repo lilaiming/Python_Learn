@@ -61,3 +61,4 @@ for file_name, missing_command_list in missing_commands.items():
     print(f"文件 {file_name} 缺少命令:")
     for missing_command in missing_command_list:
         print(missing_command)
+

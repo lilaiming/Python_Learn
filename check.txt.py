@@ -6,6 +6,8 @@ import os
 import concurrent.futures
 
 folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
+# folder_path = r'C:\Users\lilm6\Desktop\output_folder'
+# folder_path = r'D:\OneDrive - pccw.com\PCCWS - DCNI Project'
 commands_file = '2.cfg.cmd.txt'
 
 # 读取要搜索的文本列表
@@ -57,7 +59,7 @@ for root, dirs, files in os.walk(folder_path):
         file_path = os.path.join(root, filename)
         if file_path.endswith(('.txt', '.cfg', '.py', '.log')):
             file_name = os.path.basename(file_path)
-            if file_name not in missing_commands and all(command in open(file_path).read() for command in search_texts):
+            if file_name not in missing_commands and all(command in open(file_path, encoding='utf-8').read() for command in search_texts):
                 print(file_name)
 
 print("缺少命令的文件名:")

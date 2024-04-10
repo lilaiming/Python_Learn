@@ -15,12 +15,13 @@ end_number = 49
 select_count = 6
 number_of_groups = 5
 
-for _ in range(number_of_groups):
+for group_number in range(1, number_of_groups + 1):
     random_numbers = generate_random_numbers(start_number, end_number, select_count)
-    output = "随机选中的数字: "
+    output = f"第{group_number}组数字: "
     for number in random_numbers:
-        output += f"{number:2d} "  # 使用字符串格式化对齐数字
+        if number < 10:  # 判断数字是否为一位数
+            output += "0"  # 添加补位的零
+        output += f"{number} "
     print(output)
-
 
 

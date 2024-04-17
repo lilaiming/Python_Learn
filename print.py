@@ -66,24 +66,69 @@
 # print(current_day)
 #
 
+#
+# import requests  # 导入requests库，用于发送HTTP请求
+# import os  # 导入os库，用于文件路径操作
+# import re  # 导入re库，用于正则表达式匹配
+# import pandas as pd  # 导入pandas库，用于处理和操作数据
+# from datetime import datetime  # 导入datetime库，用于日期时间相关操作
+#
+# Title = 'Apple iPhone 13 Pro'
+# price = 496.0
+# stock = 2
+#
+# # 获取当前日期和星期
+# current_date = datetime.now()
+# current_week = datetime.now().strftime("%A")
+# print(current_date)
+# print(current_week)
+#
+#
+#
+#  # 创建或加载现有的Excel文件
+# output_folder = r"C:\Users\lilm6\Desktop\output_folder"
+# output_file = os.path.join(output_folder, "amazon_test.xlsx")
+#
+# if os.path.exists(output_file):
+#         df = pd.read_excel(output_file)
+# else:
+#         df = pd.DataFrame()
+#
+# if df.empty:
+#         last_no = 0
+# else:
+#         last_no = df["No."].max()
+#
+#     # 将新数据添加到DataFrame
+# new_data = {"No.": last_no + 1, "Date": current_date, "Week": current_week, "Title": Title, "Price": price,"Stock": stock}
+# df = df._append(new_data, ignore_index=True)
+#
+#     # 将DataFrame保存为Excel文件
+# df.to_excel(output_file, index=False)
+# print("数据保存成功。")
+#
 
 
+import re
 
+string1 = "Hello, lilaiming"
+string2 = "Hello, sign in"
 
+pattern = r"Hello, (.+)"
+match1 = re.match(pattern, string1)
+match2 = re.match(pattern, string2)
 
+if match1:
+    username1 = match1.group(1)
+    print("用户名1:", username1)
+else:
+    print("未找到用户名1")
 
-
-
-
-
-
-
-
-
-
-
-
-
+if match2:
+    username2 = match2.group(1)
+    print("用户名2:", username2)
+else:
+    print("未找到用户名2")
 
 
 

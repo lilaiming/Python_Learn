@@ -24,7 +24,7 @@ headers = {
     'Sec-Fetch-User': '?1',
 }
 
-url = "https://www.amazon.com/Apple-iPhone-13-Pro-Sierra/dp/B09LPB9SQH/ref=sr_1_1?crid=3H2S57WE5KP38&dib=eyJ2IjoiMSJ9.x0iwJI8EiPYwV_aSxu-DZaXO0EYEGEG69o4bTSWk6g14upXozjUBhnO1wLe9t2_8DeqBIoWZN_NyDqPfO5auPM0rVCYWgMCZ3J9n_CCGBPZZiyy6N6Xxn3PCCebO4fc6yVwQYsnfOWpEpuLb4yt1IiBvTHC0-GgygYy8wouS5ES2Al_ayieGUUq9w7vdYUsC8j6WEKW_pJuDTR9q3EObwfjJQYqElzY8tlGAv9bKh-o.MZBRsxY_2o2DUSp_4sd5e4-00NWkPZ_CtK9Lx5EZDYc&dib_tag=se&keywords=iphone%2B15%2Bpro%2Bmax&qid=1713149980&sprefix=iphone%2B15%2Bpro%2Bmax%2B%2Caps%2C331&sr=8-1&th=1"
+url = "https://www.amazon.com/Apple-iPhone-13-Pro-Sierra/dp/B0B5FLX9WS/ref=sr_1_1?crid=3H2S57WE5KP38&dib=eyJ2IjoiMSJ9.x0iwJI8EiPYwV_aSxu-DZaXO0EYEGEG69o4bTSWk6g14upXozjUBhnO1wLe9t2_8DeqBIoWZN_NyDqPfO5auPM0rVCYWgMCZ3J9n_CCGBPZZiyy6N6Xxn3PCCebO4fc6yVwQYsnfOWpEpuLb4yt1IiBvTHC0-GgygYy8wouS5ES2Al_ayieGUUq9w7vdYUsC8j6WEKW_pJuDTR9q3EObwfjJQYqElzY8tlGAv9bKh-o.MZBRsxY_2o2DUSp_4sd5e4-00NWkPZ_CtK9Lx5EZDYc&dib_tag=se&keywords=iphone%2B15%2Bpro%2Bmax&qid=1713149980&sprefix=iphone%2B15%2Bpro%2Bmax%2B%2Caps%2C331&sr=8-1&th=1"
 
 response = requests.get(url=url, headers=headers)
 
@@ -48,37 +48,5 @@ if response.status_code == 200:
     print("Web page content saved successfully.")
 else:
     print("Failed to retrieve data from the URL.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -53,8 +53,12 @@ if response.status_code == 200:
     # 提取库存数量
     stock_re = r'Only (\d+) left in stock'
     stock_match = re.findall(stock_re, html_content)
-    stock = int(stock_match[0])
-    print(stock)
+    if stock_match:
+        stock = int(stock_match[0])
+        print(stock)
+    else:
+        stock = "In Stock"
+        print(stock)
 
     # 创建或加载现有的Excel文件
     output_folder = r"C:\Users\lilm6\Desktop\output_folder"

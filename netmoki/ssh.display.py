@@ -18,12 +18,12 @@ with open('../2.ip_list.txt') as f:
 
         with ConnectHandler(**connection_info) as conn:
             print (f'已经成功登陆交换机{ip}')
-            output = conn.send_config_from_file('2.dis.cmd.txt')
+            output = conn.send_command('display current-configuration')
             # print(output)
             output2 = conn.save_config(cmd='save', confirm=True, confirm_response='y')
             # print(output2)
             # 使用正则表达式提取sysname后的字段
-            match = re.search(r"sysname\s+(\w+)", output)
+            match = re.search(r"sysname\s+(\w+(?:-\w+)*)", output)
             if match:
                 sysname = match.group(1)
                 print(f"提取的sysname字段为: {sysname}")

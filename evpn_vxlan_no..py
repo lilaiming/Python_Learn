@@ -40,7 +40,7 @@ for i in list:
 print(list2)
 
 
-output_file = "C:/Users/lilm6/Desktop/evpn_vxlan_no.txt"
+output_file = "C:/Users/lilm6/Desktop/output_folder/evpn_vxlan_no.txt"
 
 with open(output_file, 'w') as file:
     for number in list2:

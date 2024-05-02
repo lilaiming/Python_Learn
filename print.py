@@ -108,27 +108,27 @@
 # print("数据保存成功。")
 #
 
-
-import re
-
-string1 = "Hello, lilaiming"
-string2 = "Hello, sign in"
-
-pattern = r"Hello, (.+)"
-match1 = re.match(pattern, string1)
-match2 = re.match(pattern, string2)
-
-if match1:
-    username1 = match1.group(1)
-    print("用户名1:", username1)
-else:
-    print("未找到用户名1")
-
-if match2:
-    username2 = match2.group(1)
-    print("用户名2:", username2)
-else:
-    print("未找到用户名2")
+#
+# import re
+#
+# string1 = "Hello, lilaiming"
+# string2 = "Hello, sign in"
+#
+# pattern = r"Hello, (.+)"
+# match1 = re.match(pattern, string1)
+# match2 = re.match(pattern, string2)
+#
+# if match1:
+#     username1 = match1.group(1)
+#     print("用户名1:", username1)
+# else:
+#     print("未找到用户名1")
+#
+# if match2:
+#     username2 = match2.group(1)
+#     print("用户名2:", username2)
+# else:
+#     print("未找到用户名2")
 
 
 

@@ -10,6 +10,22 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 ip_list_file = '2.ip_list.txt'
 ip_list = []
 
+commands = [
+    'display current-configuration',
+    'display lldp neighbor brief',
+    'display ip routing-table',
+    'display ospf routing',
+    'display interface brief',
+    'display ip interface brief',
+    'display dfs-group 1 m-lag',
+    'display arp',
+    'display mac-address',
+    'display version',
+    'display esn',
+    'display device manufacture-info',
+    'display device'
+]
+
 # 读取IP列表并存储到ip_list列表中
 with open(ip_list_file) as f:
     ip_list = [ip.strip() for ip in f.readlines()]
@@ -29,8 +45,12 @@ def process_ip(ip):
 
     try:
         conn = ConnectHandler(**connection_info)
-        output = conn.send_config_from_file('2.dis.cmd.txt')
-        match = re.search(r"sysname\s+(\w+)", output)
+        output = ''
+
+        for command in commands:
+            output += conn.send_command(command) + '\n\n'
+
+        match = re.search(r"sysname\s+(\w+(?:-\w+)*)", output)
         if match:
             sysname = match.group(1)
             print(f"提取的sysname字段为: {sysname}")
@@ -40,7 +60,7 @@ def process_ip(ip):
         # 创建文件夹并保存文件
         folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
         os.makedirs(folder_path, exist_ok=True)  # 如果文件夹已存在，则不创建
-        filename = f"{sysname}.py"
+        filename = f"{sysname}.txt"
         file_path = os.path.join(folder_path, filename)
 
         with open(file_path, 'w') as f:

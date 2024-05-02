@@ -6,13 +6,14 @@ import requests  # 导入requests库，用于发送HTTP请求
 import re  # 导入re库，用于正则表达式匹配
 
 # 设置请求头信息
+
 headers = {
     'Host': 'www.amazon.com',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0'
 }
 
 # 定义要访问的URL
-url = "https://www.amazon.com/"
+url = "https://www.amazon.com"
 
 # 发起GET请求，获取URL对应页面的响应结果
 response = requests.get(url=url, headers=headers)

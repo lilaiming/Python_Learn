@@ -48,6 +48,7 @@ def process_ip(ip):
         output = ''
 
         for command in commands:
+            output += f"Command: {command}\n"
             output += conn.send_command(command) + '\n\n'
 
         match = re.search(r"sysname\s+(\w+(?:-\w+)*)", output)

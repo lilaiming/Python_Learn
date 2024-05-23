@@ -25,15 +25,15 @@ def generate_group_numbers(start_number, end_number, select_count, number_of_gro
 start_number = 1
 end_number = 49
 select_count = 6
-number_of_groups = 123
+number_of_groups = 49
 
 # 创建保存日志的文件夹
 folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
 os.makedirs(folder_path, exist_ok=True)  # 如果文件夹已存在，则不创建
 
 # 保存日志文件
-file_path = os.path.join(folder_path, "output_log.txt")
-with open(file_path, 'w') as file:
+file_path = os.path.join(folder_path, "random_no.txt")
+with open(file_path, 'a') as file:
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = []
         for group_number, random_numbers in enumerate(

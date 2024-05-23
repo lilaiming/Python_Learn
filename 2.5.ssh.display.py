@@ -23,7 +23,8 @@ commands = [
     'display version',
     'display esn',
     'display device manufacture-info',
-    'display device'
+    'display device',
+    'display license'
 ]
 
 # 读取IP列表并存储到ip_list列表中

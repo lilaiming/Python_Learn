@@ -22,6 +22,7 @@ def process_ip(ip):
         'ip': ip,
         'username': 'pccw2023',
         'password': 'P@ssw0rd',
+        'global_delay_factor': 1,  # 增加全局延迟因子
     }
 
     try:

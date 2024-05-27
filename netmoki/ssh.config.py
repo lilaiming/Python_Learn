@@ -10,9 +10,12 @@ sw1 = {
     'ip': '192.168.13.119',
     'username': 'pccw2023',
     'password': 'P@ssw0rd',
+    'global_delay_factor': 1,  # 增加全局延迟因子
+
 }
 
 commands = ['interface LoopBack1', 'description test-python-1']
+
 with ConnectHandler(**sw1) as connect:
         print ("已经成功登陆交换机" + sw1['ip'])
         output = connect.send_command('dis interface description | include Loop')
@@ -23,7 +26,7 @@ with ConnectHandler(**sw1) as connect:
         print(output)
         output = connect.send_command('dis interface description | include Loop')
         print(output)
-        # S系列交换机保存命令
+        S系列交换机保存命令
         output = connect.save_config(cmd='save', confirm=True, confirm_response='y')
         print(output)
 

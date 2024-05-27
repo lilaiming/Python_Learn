@@ -5,6 +5,7 @@
 from netmiko import ConnectHandler
 import os
 import re
+import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 ip_list_file = '2.ip_list.txt'
@@ -35,13 +36,16 @@ total_count = len(ip_list)  # 总IP数量
 completed_count = 0  # 已执行IP数量
 failed_ips = []  # 无法SSH登录的IP列表
 
+# 获取当前日期和时间
+current_datetime = datetime.datetime.now()
+datetime_str = current_datetime.strftime("%Y%m%d_%H%M%S")
+
 def process_ip(ip):
     connection_info = {
         'device_type': 'huawei',
         'ip': ip,
         'username': 'pccw2023',
         'password': 'P@ssw0rd',
-        'global_delay_factor': 1  # 设置全局延迟因子，默认值是0.1
     }
 
     try:
@@ -62,7 +66,10 @@ def process_ip(ip):
         # 创建文件夹并保存文件
         folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
         os.makedirs(folder_path, exist_ok=True)  # 如果文件夹已存在，则不创建
-        filename = f"{sysname}.txt"
+
+        # 添加日期和时间到文件名
+        datetime_str = current_datetime.strftime("%m%d_%Hh%Mm")
+        filename = f"{sysname}_{datetime_str}.txt"
         file_path = os.path.join(folder_path, filename)
 
         with open(file_path, 'w') as f:

@@ -130,9 +130,18 @@
 # else:
 #     print("未找到用户名2")
 
+import datetime
 
+# 获取当前日期和时间
+current_datetime = datetime.datetime.now()
 
+# 格式化日期和时间为字符串
+datetime_str = current_datetime.strftime("_%m%d_%Hh%Mm")
 
+# 创建文件名
+filename = f"{datetime_str}.txt"
+
+print(filename)
 
 
 

@@ -22,21 +22,20 @@ def process_ip(ip):
         'ip': ip,
         'username': 'pccw2023',
         'password': 'P@ssw0rd',
-        'global_delay_factor': 1  # 设置全局延迟因子，默认值是0.1
     }
 
     try:
         with ConnectHandler(**connection_info) as conn:
             print(f"已经成功登录交换机 {ip}")
             output = conn.send_config_from_file('2.cfg.cmd.txt')
-            # print(output)
+            print(output)
 
             output = conn.send_command('dis cu | in loghost')
             print(output)
 
             output = conn.send_command_timing(command_string="save")
             output += conn.send_command_timing(command_string="Y", strip_command=False)
-            # print(output)
+            print(output)
 
     except Exception as e:
         print(f"处理 {ip} 时出错: {str(e)}")

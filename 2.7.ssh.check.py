@@ -41,12 +41,11 @@ def process_ip(ip):
         'ip': ip,
         'username': 'pccw2023',
         'password': 'P@ssw0rd',
-        'global_delay_factor': 1  # 设置全局延迟因子，默认值是0.1
     }
 
     try:
         conn = ConnectHandler(**connection_info)
-        output = conn.send_command('display current-configuration')
+        output = conn.send_command('display current-configuration ')
 
         for cmd in commands:
             count = output.count(cmd)
@@ -91,3 +90,5 @@ print(f"未完成IP列表: {failed_ips}")
 print("不存在命令的IP列表:")
 for ip in failed_ips:
     print(ip)
+
+

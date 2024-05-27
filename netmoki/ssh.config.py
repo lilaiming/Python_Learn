@@ -7,7 +7,7 @@ from netmiko import ConnectHandler
 # 定义设备信息
 sw1 = {
     'device_type': 'huawei',
-    'ip': '192.168.56.110',
+    'ip': '192.168.13.119',
     'username': 'pccw2023',
     'password': 'P@ssw0rd',
 }

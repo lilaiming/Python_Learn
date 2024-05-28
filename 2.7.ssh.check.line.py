@@ -49,7 +49,7 @@ def process_ip(ip):
         for cmd in commands:
             count = output.count(cmd)
             if count > 0:
-                message = f"设备 {ip} 中命令 '{cmd}' 出现了 {count} 次"
+                message = f"设备 {ip} 中命令出现了 {count} 次：\n'{cmd}'"
                 print(message)
                 logging.info(message)
             else:

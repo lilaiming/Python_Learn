@@ -16,7 +16,7 @@ commands_paragraphs = []
 with open(ip_list_file) as f:
     ip_list = [ip.strip() for ip in f.readlines()]
 
-# 读取要检查的命令段落列表并存储到 commands_paragraphs 列表中
+# 读取要检查的命令段落列表并存储到 commands_paragraphs 列表中,使用2个回车分开段落
 with open(commands_file) as f:
     commands_paragraphs = [paragraph.strip() for paragraph in f.read().split('\n\n')]
 

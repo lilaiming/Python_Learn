@@ -31,9 +31,7 @@ desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 log_folder = os.path.join(desktop_path, 'output_folder')
 log_file = 'network_audit.log'
 log_path = os.path.join(log_folder, log_file)
-
 logging.basicConfig(filename=log_path, level=logging.INFO)
-
 
 def process_ip(ip):
     connection_info = {
@@ -42,12 +40,11 @@ def process_ip(ip):
         'username': 'pccw2023',
         'password': 'P@ssw0rd',
         'global_delay_factor': 1,  # 增加全局延迟因子
-
     }
 
     try:
         conn = ConnectHandler(**connection_info)
-        output = conn.send_command('display current-configuration ')
+        output = conn.send_command('display current-configuration')
 
         for cmd in commands:
             count = output.count(cmd)

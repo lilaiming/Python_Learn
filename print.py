@@ -129,19 +129,363 @@
 #     print("用户名2:", username2)
 # else:
 #     print("未找到用户名2")
+#
+# import datetime
+#
+# # 获取当前日期和时间
+# current_datetime = datetime.datetime.now()
+#
+# # 格式化日期和时间为字符串
+# datetime_str = current_datetime.strftime("_%m%d_%Hh%Mm")
+#
+# # 创建文件名
+# filename = f"{datetime_str}.txt"
+#
+# print(filename)
+#
 
-import datetime
 
-# 获取当前日期和时间
-current_datetime = datetime.datetime.now()
+#
+# import re
+#
+# text = """
+# Huawei Versatile Routing Platform Software
+# VRP (R) software, Version 8.221 (CE6881 V200R022C10SPC500)
+# Copyright (C) 2012-2023 Huawei Technologies Co., Ltd.
+# HUAWEI CE6881-48T6CQ uptime is 7 days, 23 hours, 28 minutes
+# Patch Version: V200R022SPH1b0"""
+#
+# output_lines_version = text.split('\n')
+# version_line = output_lines_version[2]  # 获取第二行
+#
+#
+#
+# print(version_line)
+# # print("MODEL:", MODEL)
+# # print("Version:", version)
+#
+# import re
+#
+# version_line = """
+# VRP (R) software, Version 5.170 (S5731 V200R022C00SPC500)
+# """
+#
+# pattern = r"Version \d+\.\d+ \((\w+) (V\d+R\d+C\d+SPC\d+)\)"
+# matches = re.findall(pattern, version_line)
+#
+# for match in matches:
+#     print(f"{match[0]}")
+#     print(f"{match[1]}")
+#
+# import re
+#
+# version_line = """
+# Huawei Versatile Routing Platform Software
+# VRP (R) software, Version 8.221 (CE6881 V200R022C10SPC500)
+# Copyright (C) 2012-2023 Huawei Technologies Co., Ltd.
+# HUAWEI CE6881-48T6CQ uptime is 8 days, 1 hour, 17 minutes
+# Patch Version: V200R022SPH1b0
+#
+# """
+#
+# pattern = r"Version \d+\.\d+ \((\w+) (V\d+R\d+C\d+SPC\d+)\)"
+# matches = re.search(pattern, version_line)
+#
+# sss = matches.group(1)
+# xxx = matches.group(2)
+# print(sss)
+# print(xxx)
 
-# 格式化日期和时间为字符串
-datetime_str = current_datetime.strftime("_%m%d_%Hh%Mm")
+#
+# import re
+#
+# version_line = """
+# Patch Package Name    :flash:/CE6800_V200R022SPH1b0.PAT
+# Patch Package Version :V200R022SPH1b0
+# Patch Package State   :Running
+# Patch Package Run Time:2024-05-22 23:31:36+08:00
+# """
+#
+# pattern = r"Patch Package Version\s*:\s*(V\d+R\d+C\d+SPH\d+[a-zA-Z]\d+)"
+# matches = re.search(pattern, version_line)
+#
+# xxx = matches.group(1)
+# #
+# # print(xxx)
+# #
+# import re
+#
+# data = """
+# Patch Package Name    :flash:/CE6800_V200R022SPH1b0.PAT
+# Patch Package Version :V200R022SPH1b0
+# Patch Package State   :Running
+# Patch Package Run Time:2024-05-22 23:31:36+08:00
+#
+# """
+#
+# pattern = r"Patch Package Version\s*:\s*(\w+)"
+# matches = re.search(pattern, data)
+# xxx = matches.group(1)
+# print(xxx)
+#
+#
+# import re
+#
+# data = """
+# ESN of slot 1: 102365353525
+# ESN of slot 0: 4E2340039806
+# """
+#
+# pattern = r":\s*(.*)"
+# matches = re.search(pattern, data)
+# print(matches)
+# xx = matches.group(1)
+# print(xx)
+#
+import re
+#
+# data = """
+# ----------------------------------------------------------------------------
+# Slot       Card   Type               Serial-number            Manu-date
+# ----------------------------------------------------------------------------
+# backplane  --     CE16804-AH         102365785835             2023-06-08
+# 1          --     CEL48XSFD-G        102365916108             2023-06-08
+# 2          --     CEL48XSFD-G        102365916115             2023-06-08
+# 3          --     CEL36CQFD-G        102365916102             2023-06-08
+# 4          --     CEL36CQFD-G        102365916107             2023-06-08
+# """
+#
+# pattern = r"CE16804-AH\s+(\d+)"
+# matches = re.search(pattern, data)
+# xx = matches.group(1)
+# print(xx)
+#
 
-# 创建文件名
-filename = f"{datetime_str}.txt"
+#
+#
+# if Version == "CE16800":
+#     output_esn1 = conn.send_command('display esn')
+#     pattern = r":\s*(.*)"
+#     matches = re.search(pattern, output_esn1)
+#     ESN1 = matches.group(1)
+#     print(ESN1)
+# else:
+#     output_esn2 = conn.send_command('display esn')
+#     pattern = r"CE16804-AH\s+(\d+)"
+#     matches = re.search(pattern, output_esn2)
+#     ESN2 = matches.group(1)
+#     print(ESN2)
+#
+#
+#
+ttt = """
+Patch Package Version:V200R022SPH1b1
+Patch Package Version :V200R022SPH1b2
+Patch version         :ARV300R022SPH221
+"""
 
-print(filename)
+pattern =   r"Patch .*[Vv]ersion\s*:\s*(\w+)"
+# pattern = r"Patch Package Version\s*:\s*(\w+)"
+matches = re.findall(pattern, ttt)
+print(matches)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

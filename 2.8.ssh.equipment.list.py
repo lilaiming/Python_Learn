@@ -4,6 +4,7 @@
 
 import os
 import re
+import datetime
 import pandas as pd
 from netmiko import ConnectHandler
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -38,7 +39,7 @@ def process_ip(ip):
             pattern = r"sysname (.*)"
             matches = re.search(pattern, output_sysname)
             Sysname = matches.group(1)
-            print(Sysname)
+            # print(Sysname)
 
             # 获取Model和Version
             output_version = conn.send_command('display version')
@@ -46,15 +47,15 @@ def process_ip(ip):
             matches = re.search(pattern, output_version)
             Model = matches.group(1)
             Version = matches.group(2)
-            print(Model)
-            print(Version)
+            # print(Model)
+            # print(Version)
 
             # 获取Patch
             output_patch = conn.send_command('display patch')
             pattern = r"Patch .*[Vv]ersion\s*:\s*(\w+)"
             matches = re.search(pattern, output_patch)
             Patch = matches.group(1)
-            print(Patch)
+            # print(Patch)
 
             # 获取ESN
             if Model == "CE16800":
@@ -62,13 +63,13 @@ def process_ip(ip):
                 pattern = r"CE16804-AH\s+(\d+)"
                 matches = re.search(pattern, output_esn)
                 ESN = matches.group(1)
-                print(ESN)
+                # print(ESN)
             else:
                 output_esn = conn.send_command('display esn')
                 pattern = r":\s*(.*)"
                 matches = re.search(pattern, output_esn)
                 ESN = matches.group(1)
-                print(ESN)
+                # print(ESN)
 
 
 
@@ -93,13 +94,18 @@ with ThreadPoolExecutor(max_workers=5) as executor:
     for future in as_completed(process_futures):
         future.result()
 
+# 获取当前日期和时间
+current_datetime = datetime.datetime.now()
+datetime_str = current_datetime.strftime("%Y%m%d")
+
 # 获取桌面路径
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 
 # 构建结果保存路径
 output_folder = os.path.join(desktop_path, "output_folder")
 os.makedirs(output_folder, exist_ok=True)
-output_file = os.path.join(output_folder, "DEV_Equipment_List.xlsx")
+filename = f"DEV_Equipment_List_{datetime_str}.xlsx"
+output_file = os.path.join(output_folder, filename)
 
 # 将结果保存到表格
 df = pd.DataFrame(results)

@@ -2,6 +2,7 @@
 # 本脚由lilaiming编写，用于学习使用！
 # Email:essid@qq.com
 
+import re
 from netmiko import ConnectHandler
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -29,50 +30,63 @@ def process_ip(ip):
         with ConnectHandler(**connection_info) as conn:
             print(f"已经成功登录交换机 {ip}")
 
+            # 获取Model
+            output_Model = conn.send_command('display version')
+            pattern = r"Version \d+\.\d+ \((.*) V\d+R\d+C\d+SPC\d+\)"
+            matches = re.search(pattern, output_Model)
+            Model = matches.group(1)
+            # print(Model)
+
             output = conn.send_command('display lldp neighbor brief')
-            print(output)
+            # print(output)
 
-            # 解析输出并进行配置 //CE系列交换机
-            lines = output.splitlines()[2:]  # 去除前两行标题
-            for line in lines:
-                parts = line.split()
-                if len(parts) >= 4:  # 确保存在足够的数据
-                    local_interface = parts[0]
-                    neighbor_interface = parts[2]
-                    neighbor_device = parts[3]
+            if Model in ["CE16800", "CE8850EI", "CE6863E", "CE6881"]:
+                # 解析输出并进行配置 //CE系列交换机
+                lines = output.splitlines()[2:]  # 去除前两行标题
+                for line in lines:
+                    parts = line.split()
+                    if len(parts) >= 4:  # 确保存在足够的数据
+                        local_interface = parts[0]
+                        neighbor_interface = parts[2]
+                        neighbor_device = parts[3]
 
-                    # 构建配置命令
-                    interface = local_interface.split()[0]
-                    description = f"To_{neighbor_device}_{neighbor_interface}"
-                    config_commands = [f"interface {interface}", f"description {description}"]
-                    # print(config_commands)
+                        # 构建配置命令
+                        interface = local_interface.split()[0]
+                        description = f"To_{neighbor_device}_{neighbor_interface}"
+                        config_commands = [f"interface {interface}", f"description {description}"]
+                        # print(config_commands)
 
-            # # 解析输出并进行配置 //S系列交换机
-            # lines = output.splitlines()[1:]  # 去除前两行标题
-            # for line in lines:
-            #     parts = line.split()
-            #     if len(parts) >= 4:  # 确保存在足够的数据
-            #         local_interface = parts[0]
-            #         if "100GE" not in local_interface:
-            #             local_interface = local_interface.replace("GE" , "GigabitEthernet").replace("XGE", "XGigabitEthernet")
-            #         neighbor_device = parts[1]
-            #         neighbor_interface = parts[2]
-            #
-            #         # 构建配置命令
-            #         interface = local_interface.split()[0]
-            #         description = f"To_{neighbor_device}_{neighbor_interface}"
-            #         config_commands = [f"interface {interface}", f"description {description}"]
-            #         print(config_commands)
+                        # 发送配置命令
+                        output = conn.send_config_set(config_commands, exit_config_mode=False)
+                        # print(output)
 
-                    # 发送配置命令
-                    output = conn.send_config_set(config_commands , exit_config_mode=False)
-                    print(output)
+            else:
+                # 解析输出并进行配置 //S系列交换机
+                lines = output.splitlines()[1:]  # 去除前两行标题
+                for line in lines:
+                    parts = line.split()
+                    if len(parts) >= 4:  # 确保存在足够的数据
+                        local_interface = parts[0]
+                        if "100GE" not in local_interface:
+                            local_interface = local_interface.replace("GE" , "GigabitEthernet").replace("XGE", "XGigabitEthernet")
+                        neighbor_device = parts[1]
+                        neighbor_interface = parts[2]
+
+                        # 构建配置命令
+                        interface = local_interface.split()[0]
+                        description = f"To_{neighbor_device}_{neighbor_interface}"
+                        config_commands = [f"interface {interface}", f"description {description}"]
+                        # print(config_commands)
+
+                        # 发送配置命令
+                        output = conn.send_config_set(config_commands , exit_config_mode=False)
+                        # print(output)
 
             output = conn.send_command_timing(command_string="commit")
             output = conn.send_command_timing(command_string="return")
             output = conn.send_command_timing(command_string="save")
             output += conn.send_command_timing(command_string="Y", strip_command=False)
-            print(output)
+            # print(output)
 
     except Exception as e:
         print(f"处理 {ip} 时出错: {str(e)}")

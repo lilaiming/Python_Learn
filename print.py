@@ -278,20 +278,25 @@ import re
 #
 #
 #
-ttt = """
-Patch Package Version:V200R022SPH1b1
-Patch Package Version :V200R022SPH1b2
-Patch version         :ARV300R022SPH221
-"""
-
-pattern =   r"Patch .*[Vv]ersion\s*:\s*(\w+)"
-# pattern = r"Patch Package Version\s*:\s*(\w+)"
-matches = re.findall(pattern, ttt)
-print(matches)
-
-
+# ttt = """
+# Patch Package Version:V200R022SPH1b1
+# Patch Package Version :V200R022SPH1b2
+# Patch version         :ARV300R022SPH221
+# """
+#
+# pattern =   r"Patch .*[Vv]ersion\s*:\s*(\w+)"
+# # pattern = r"Patch Package Version\s*:\s*(\w+)"
+# matches = re.findall(pattern, ttt)
+# print(matches)
 
 
+
+Model = "CE16800"
+
+if Model in ["CE16800", "CE8850EI", "CE6863E", "CE6881"]:
+    print("A")
+else:
+    print("B")
 
 
 

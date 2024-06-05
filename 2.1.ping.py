@@ -7,7 +7,7 @@ import concurrent.futures
 
 def ping(ip):
     # 执行ping命令
-    result = subprocess.run(['ping', '-n', '4', ip], capture_output=True, text=True)
+    result = subprocess.run(['ping', '-n', '2', ip], capture_output=True, text=True)
 
     # 检查ping结果
     if "TTL=" in result.stdout:

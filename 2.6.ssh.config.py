@@ -31,8 +31,8 @@ def process_ip(ip):
             output = conn.send_config_from_file('2.cfg.cmd.txt')
             print(output)
 
-            output = conn.send_command('dis cu | in loghost')
-            print(output)
+            # output = conn.send_command('dis cu | in loghost')
+            # print(output)
 
             output = conn.send_command_timing(command_string="save")
             output += conn.send_command_timing(command_string="Y", strip_command=False)

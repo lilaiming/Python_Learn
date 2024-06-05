@@ -41,6 +41,68 @@ def process_ip(ip):
             Sysname = matches.group(1)
             # print(Sysname)
 
+            # 获取ZONE,Remark
+            if Sysname.startswith("IT"):
+                ZONE = "MCN"
+                # print(ZONE)
+            elif Sysname.startswith("AN"):
+                ZONE = "AN"
+                # print(ZONE)
+            elif Sysname.startswith("DEV"):
+                ZONE = "DCI"
+                # print(ZONE)
+            else:
+                ZONE = "-"
+                # print(ZONE)
+            if Sysname[-4].isdigit() and Sysname[-3] in ["F", "T"]:
+                Remark = "access switch"
+                # print(Remark)
+            elif Sysname[-3] == "C":
+                Remark = "core switch"
+                # print(Remark)
+            elif Sysname[-3] == "D":
+                Remark = "distribution switch"
+                # print(Remark)
+            elif "RT" in Sysname:
+                Remark = "router"
+                # print(Remark)
+            else:
+                Remark = "-"
+                # print(Remark)
+
+            # 获取MGMT IP
+            vlan_interfaces = ['Vlanif162', 'Vlanif262', 'Vlanif362', 'Vlanif570', 'Vlanif883', 'Vlanif1305', 'Eth-Trunk100.570', 'Ethernet0/0/0', 'LoopBack301', 'Eth-Trunk1.162', 'Eth-Trunk2.162', 'Eth-Trunk3.162']
+
+            for vlan_interface in vlan_interfaces:
+                try:
+                    output_vlanif = conn.send_command('display current-configuration interface {}'.format(vlan_interface))
+                    # print(output_vlanif)
+                    vlan_data = re.search(r"interface {}\n(.+?)#".format(vlan_interface), output_vlanif, re.DOTALL)
+                    # print(vlan_data)
+                    if vlan_data is None or vlan_data.group(1) == "":
+                        continue
+                    mlag_match = re.search(r"m-lag ip address (\S+)", vlan_data.group(1))
+                    if mlag_match:
+                        MGMT = mlag_match.group(1)
+                        print(MGMT)
+                    else:
+                        ip_match = re.search(r"ip address (\S+)", vlan_data.group(1))
+                        if ip_match:
+                            MGMT = ip_match.group(1)
+                            print(MGMT)
+                        else:
+                            continue
+
+                except Exception as e:
+                    print("处理 {} 时出错: {}".format(vlan_interface, e))
+
+            # 获取Other IP
+            output_other_ip = conn.send_command('display ip interface brief')
+            pattern = r"\b(?:\d{1,3}\.){3}\d{1,3}\b"
+            matches = re.findall(pattern, output_other_ip)
+            other_ip = ','.join(matches)
+            # print(other_ip)
+
             # 获取Model和Version
             output_version = conn.send_command('display version')
             pattern = r"Version \d+\.\d+ \((.*) (V\d+R\d+C\d+SPC\d+)\)"
@@ -64,6 +126,12 @@ def process_ip(ip):
                 matches = re.search(pattern, output_esn)
                 ESN = matches.group(1)
                 # print(ESN)
+            # elif Model == "NetEngine 8000 M6":
+            #     output_esn = conn.send_command('display esn')
+            #     pattern = r":\s*(.*)"
+            #     matches = re.findall(pattern, output_esn)
+            #     ESN = ',\n'.join(matches)
+            #     print(ESN)
             else:
                 output_esn = conn.send_command('display esn')
                 pattern = r":\s*(.*)"
@@ -71,10 +139,8 @@ def process_ip(ip):
                 ESN = matches.group(1)
                 # print(ESN)
 
-
-
             # 存储结果
-            results.append({'Hostname': Sysname, 'MGMT IP': ip, 'Model':Model, 'Version':Version, 'Patch':Patch, 'ESN':ESN   })
+            results.append({'MCN/AN': ZONE, 'Hostname': Sysname, 'FI-MON IP': ip, 'MGMT IP':MGMT, 'Other IP':other_ip, 'Model':Model, 'Version':Version, 'Patch':Patch, 'ESN':ESN, 'REMARK':Remark})
 
     except Exception as e:
         print(f"处理 {ip} 时出错: {str(e)}")
@@ -104,7 +170,7 @@ desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 # 构建结果保存路径
 output_folder = os.path.join(desktop_path, "output_folder")
 os.makedirs(output_folder, exist_ok=True)
-filename = f"DEV_Equipment_List_{datetime_str}.xlsx"
+filename = f"DEV_DCNI_Equipment_List_{datetime_str}.xlsx"
 output_file = os.path.join(output_folder, filename)
 
 # 将结果保存到表格

@@ -50,6 +50,10 @@ def process_ip(ip):
                         neighbor_interface = parts[2]
                         neighbor_device = parts[3]
 
+                        # 检查是否需要构建配置命令
+                        if 'ITVNHQFWTR01' in line or 'ANVNHQFWTR01' in line:
+                            continue  # 跳过包含 'ITVNHQFWTR01' 或 'ANVNHQFWTR01' 的行
+
                         # 构建配置命令
                         interface = local_interface.split()[0]
                         description = f"To_{neighbor_device}_{neighbor_interface}"
@@ -61,7 +65,7 @@ def process_ip(ip):
                         # print(output)
 
             else:
-                # 解析输出并进行配置 //S系列交换机
+                # 解析输出并进行配置 //S系列交换机和AR路由器
                 lines = output.splitlines()[1:]  # 去除前两行标题
                 for line in lines:
                     parts = line.split()

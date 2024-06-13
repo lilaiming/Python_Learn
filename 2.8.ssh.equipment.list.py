@@ -71,7 +71,7 @@ def process_ip(ip):
                 # print(Remark)
 
             # 获取MGMT IP
-            vlan_interfaces = ['Vlanif162', 'Vlanif262', 'Vlanif362', 'Vlanif570', 'Vlanif883', 'Vlanif1305', 'Eth-Trunk100.570', 'Ethernet0/0/0', 'LoopBack301', 'Eth-Trunk1.162', 'Eth-Trunk2.162', 'Eth-Trunk3.162']
+            vlan_interfaces = ['Vlanif162', 'Vlanif262', 'Vlanif362', 'Vlanif570', 'Vlanif883', 'Vlanif1305', 'Ethernet0/0/0', 'GigabitEthernet0/0/8']
 
             for vlan_interface in vlan_interfaces:
                 try:

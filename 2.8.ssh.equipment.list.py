@@ -54,7 +54,7 @@ def process_ip(ip):
             else:
                 ZONE = "-"
                 # print(ZONE)
-            if Sysname[-4].isdigit() and Sysname[-3] in ["F", "T"]:
+            if Sysname[-4].isdigit() and Sysname[-3] in ["F", "T", "M"]:
                 Remark = "access switch"
                 # print(Remark)
             elif Sysname[-3] == "C":
@@ -84,12 +84,12 @@ def process_ip(ip):
                     mlag_match = re.search(r"m-lag ip address (\S+)", vlan_data.group(1))
                     if mlag_match:
                         MGMT = mlag_match.group(1)
-                        print(MGMT)
+                        # print(MGMT)
                     else:
                         ip_match = re.search(r"ip address (\S+)", vlan_data.group(1))
                         if ip_match:
                             MGMT = ip_match.group(1)
-                            print(MGMT)
+                            # print(MGMT)
                         else:
                             continue
 
@@ -139,8 +139,18 @@ def process_ip(ip):
                 ESN = matches.group(1)
                 # print(ESN)
 
+            # 获取License
+            output_License = conn.send_command('display license')
+            pattern = r" License Serial No :\s*(\w+)"
+            matches = re.search(pattern, output_License)
+            if matches:
+                License = matches.group(1)
+            else:
+                License = "No license"
+            # print(License)
+
             # 存储结果
-            results.append({'MCN/AN': ZONE, 'Hostname': Sysname, 'FI-MON IP': ip, 'MGMT IP':MGMT, 'Other IP':other_ip, 'Model':Model, 'Version':Version, 'Patch':Patch, 'ESN':ESN, 'REMARK':Remark})
+            results.append({'MCN/AN': ZONE, 'Hostname': Sysname, 'FI-MON IP': ip, 'MGMT IP':MGMT, 'Model':Model, 'Version':Version, 'Patch':Patch, 'ESN':ESN, 'License':License, 'REMARK':Remark, 'Other IP':other_ip})
 
     except Exception as e:
         print(f"处理 {ip} 时出错: {str(e)}")
@@ -152,7 +162,7 @@ def process_ip(ip):
         print(f"已执行 {completed_count}/{total_count} 个IP。")
 
 # 初始化连接池
-with ThreadPoolExecutor(max_workers=5) as executor:
+with ThreadPoolExecutor() as executor:
     # 提交每个IP的处理任务给线程池
     process_futures = [executor.submit(process_ip, ip) for ip in ip_list]
 

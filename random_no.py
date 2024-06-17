@@ -25,7 +25,7 @@ def generate_group_numbers(start_number, end_number, select_count, number_of_gro
 start_number = 1
 end_number = 49
 select_count = 6
-number_of_groups = 49
+number_of_groups = 1
 
 # 创建保存日志的文件夹
 folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')

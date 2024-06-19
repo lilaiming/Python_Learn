@@ -126,12 +126,12 @@ def process_ip(ip):
                 matches = re.search(pattern, output_esn)
                 ESN = matches.group(1)
                 # print(ESN)
-            # elif Model == "NetEngine 8000 M6":
-            #     output_esn = conn.send_command('display esn')
-            #     pattern = r":\s*(.*)"
-            #     matches = re.findall(pattern, output_esn)
-            #     ESN = ',\n'.join(matches)
-            #     print(ESN)
+            elif Model == "CE5882-48T4S-B":
+                output_esn = conn.send_command('display esn')
+                pattern = r":\s*(.*)"
+                matches = re.findall(pattern, output_esn)
+                ESN = ',\n'.join(matches)
+                # print(ESN)
             else:
                 output_esn = conn.send_command('display esn')
                 pattern = r":\s*(.*)"
@@ -188,7 +188,6 @@ df = pd.DataFrame(results)
 df.to_excel(output_file, index=False)
 
 print(f"结果已保存到文件: {output_file}")
-print("所有IP执行完成。")
 print(f"已完成IP列表: {completed_count}/{total_count}")
 print(f"未完成IP列表: {failed_ips}")
 

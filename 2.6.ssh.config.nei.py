@@ -101,8 +101,8 @@ def process_ip(ip):
         completed_count += 1
         print(f"已执行 {completed_count}/{total_count} 个IP。")
 
-# 初始化连接池
-with ThreadPoolExecutor(max_workers=5) as executor:
+# 初始化连接池 ThreadPoolExecutor(max_workers=5)
+with ThreadPoolExecutor() as executor:
     # 提交每个IP的处理任务给线程池
     process_futures = [executor.submit(process_ip, ip) for ip in ip_list]
 

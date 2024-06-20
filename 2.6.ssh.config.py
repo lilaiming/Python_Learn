@@ -28,8 +28,8 @@ def process_ip(ip):
     try:
         with ConnectHandler(**connection_info) as conn:
             print(f"已经成功登录交换机 {ip}")
-            output = conn.send_config_from_file('2.cfg.cmd.txt')
-            print(output)
+            # output = conn.send_config_from_file('2.cfg.cmd.txt')
+            # print(output)
 
             # output = conn.send_command('dis cu | in loghost')
             # print(output)
@@ -48,7 +48,7 @@ def process_ip(ip):
         print(f"已执行 {completed_count}/{total_count} 个IP。")
 
 # 初始化连接池
-with ThreadPoolExecutor(max_workers=5) as executor:
+with ThreadPoolExecutor() as executor:
     # 提交每个IP的处理任务给线程池
     process_futures = [executor.submit(process_ip, ip) for ip in ip_list]
 

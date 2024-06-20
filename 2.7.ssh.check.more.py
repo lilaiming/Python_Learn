@@ -74,7 +74,7 @@ def process_ip(ip):
 
 
 # 初始化连接池
-with ThreadPoolExecutor(max_workers=5) as executor:
+with ThreadPoolExecutor() as executor:
     # 提交每个IP的处理任务给线程池
     process_futures = [executor.submit(process_ip, ip) for ip in ip_list]
 

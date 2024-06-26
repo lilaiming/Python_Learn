@@ -36,7 +36,7 @@ def process_ip(ip):
 
             output = conn.send_command_timing(command_string="save")
             output += conn.send_command_timing(command_string="Y", strip_command=False)
-            print(output)
+            # print(output)
 
     except Exception as e:
         print(f"处理 {ip} 时出错: {str(e)}")

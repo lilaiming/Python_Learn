@@ -61,7 +61,7 @@ def process_ip(ip):
         match = re.search(r"sysname\s+(\w+(?:-\w+)*)", output)
         if match:
             sysname = match.group(1)
-            print(f"提取的sysname字段为: {sysname}")
+            # print(f"提取的sysname字段为: {sysname}")
         else:
             print("未找到sysname字段")
 
@@ -76,7 +76,7 @@ def process_ip(ip):
 
         with open(file_path, 'w') as f:
             f.write(output)
-        print(f"文件已保存至：{file_path}")
+        # print(f"文件已保存至：{file_path}")
 
     except Exception as e:
         print(f"处理 {ip} 时出错: {str(e)}")

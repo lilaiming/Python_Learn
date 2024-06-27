@@ -52,6 +52,7 @@ def process_ip(ip):
 
     try:
         conn = ConnectHandler(**connection_info)
+        print(f"已经成功登录交换机 {ip}")
         output = ''
 
         for command in commands:

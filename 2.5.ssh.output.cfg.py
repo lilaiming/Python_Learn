@@ -19,6 +19,9 @@ commands = [
     'display interface brief',
     'display ip interface brief',
     'display dfs-group 1 m-lag',
+    'display dfs-group 1 m-lag brief',
+    'display vlan summary',
+    'display vlan',
     'display arp',
     'display mac-address',
     'display version',
@@ -67,7 +70,8 @@ def process_ip(ip):
             print("未找到sysname字段")
 
         # 创建文件夹并保存文件
-        folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
+        folder_name = datetime.datetime.now().strftime("%Y-%m-%d") + "_dev.log"
+        folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder', folder_name)
         os.makedirs(folder_path, exist_ok=True)  # 如果文件夹已存在，则不创建
 
         # 添加日期和时间到文件名

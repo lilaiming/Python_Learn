@@ -5,9 +5,8 @@
 import os
 import concurrent.futures
 
-# folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
+folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')
 # folder_path = r'C:\Users\lilm6\Desktop\output_folder'
-folder_path = r'D:\OneDrive - pccw.com\PCCWS - DCNI Project'
 commands_file = '2.cfg.cmd.txt'
 
 # 读取要搜索的文本列表

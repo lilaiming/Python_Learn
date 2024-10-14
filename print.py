@@ -3,20 +3,40 @@
 # Email:essid@qq.com
 #
 
-def fibonacci(n):
-    # 基本情况
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    # 递归步骤
-    else:
-        return fibonacci(n - 1) + fibonacci(n - 2)
-
-# 调用函数
-print(fibonacci(6))  # 输出: 8
+import random
 
 
+def guess_the_number():
+    number_to_guess = random.randint(1, 100)
+    attempts = 0
+
+    print("欢迎来到猜数字游戏！")
+    print("我已经选择了一个1到100之间的数字。")
+
+    while True:
+        user_guess = input("请输入你的猜测（1-100）：")
+
+        try:
+            user_guess = int(user_guess)
+            attempts += 1
+
+            if user_guess < 1 or user_guess > 100:
+                print("请确保你的猜测在1到100之间！")
+            elif user_guess < number_to_guess:
+                print("太小了！再试一次。")
+            elif user_guess > number_to_guess:
+                print("太大了！再试一次。")
+            else:
+                print(f"恭喜你！你猜对了，数字是 {number_to_guess}。")
+                print(f"你一共猜了 {attempts} 次。")
+                break
+
+        except ValueError:
+            print("请输入一个有效的数字！")
+
+
+if __name__ == "__main__":
+    guess_the_number()
 
 
 

@@ -5,7 +5,7 @@
 import os
 
 template_text = """
-
+#
 bridge-domain xxx
 vxlan vni 140xxx split-horizon-mode
 evpn binding vpn-instance MCN_DEV bd-tag xxx
@@ -21,7 +21,7 @@ vni 140xxx head-end peer-list protocol bgp
 # modify vni 110，AN_DEV|MCN_DEV，Eth-Trunk 200.
 # modify list vlan no.
 list= [
-483
+483,500
 ]
 
 list2 =[]
@@ -37,9 +37,9 @@ with open(output_file, 'a') as file:
     for number in list2:
         replaced_text = template_text.replace('xxx', number)
         file.write(replaced_text)
-        file.write('-'*50 + '\n')
+        file.write('#'*50 + '\n')
         print(replaced_text)
-        print('-'*50 + '\n')
+        print('#'*50 + '\n')
 
 
 

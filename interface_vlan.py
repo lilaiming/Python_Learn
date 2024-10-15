@@ -8,16 +8,11 @@ config = """
 interface Vlanif1315
  description AP2 DEV MCN for Vendors
  ip address 172.17.183.129 255.255.255.128
- dhcp select relay
- dhcp relay server-ip 172.16.243.44
- dhcp relay server-ip 172.16.243.45
 #
 interface Vlanif1399
  description To-FW
  ip address 172.17.191.9 255.255.255.248
- statistic enable both
 #
-
 
 """
 
@@ -34,7 +29,6 @@ new_config = '\n'.join(output)
 
 # 打印新的配置
 print("#")
-print("#")
 print(new_config)
-print("#")
+
 

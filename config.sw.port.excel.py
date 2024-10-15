@@ -1,26 +1,46 @@
+# -*- coding=utf-8 -*-
+# 本脚由lilaiming编写，用于学习使用！
+# Email:essid@qq.com
+
 import pandas as pd
 import os
+import tkinter as tk
+from tkinter import filedialog
 
-# 定义文件路径
-desktop_path = os.path.expanduser("~/Desktop/output_folder")
-file_name = "PDCAS(non-PROD).xlsx"
-file_path = os.path.join(desktop_path, file_name)
+# 创建一个文件选择对话框
+def select_file():
+    root = tk.Tk()
+    root.withdraw()  # 隐藏主窗口
+    file_path = filedialog.askopenfilename(title="选择 Excel 文件", filetypes=[("Excel files", "*.xlsx;*.xls")])
+    return file_path
 
-# 定义需要提取的列名
-columns_to_extract = [
-    "A End Hostname",
-    "Slot",
-    "Port",
-    "B-end Information",
-    "Access / Trunk Mode",
-    "VLAN no",
-    "Speed(100M/1G/10G/Auto)"
-]
+# 选择文件
+file_path = select_file()
+if not file_path:
+    print("未选择文件，程序结束。")
+    exit()
 
 # 读取 Excel 文件
 try:
     # 读取特定工作表 "Port mapping (IP)"
     df = pd.read_excel(file_path, sheet_name="Port mapping (IP)")
+
+    # 处理列名，去除换行和前后空格
+    df.columns = df.columns.str.strip().str.replace('\n', '')
+
+    # 打印读取到的列名以供调试
+    # print("读取到的列名:", df.columns.tolist())
+
+    # 定义需要提取的列名
+    columns_to_extract = [
+        "A End Hostname",
+        "Slot",
+        "Port",
+        "B-end Information",
+        "Access / Trunk Mode",
+        "VLAN no",
+        "Speed(100M/1G/10G/Auto)"  # 确保与处理后的列名一致
+    ]
 
     # 提取所需的列
     extracted_data = df[columns_to_extract]
@@ -61,7 +81,7 @@ try:
     for index, row in extracted_data.iterrows():
         a_end_hostname = row["A End Hostname"].replace('/', '_').replace('\\', '_')  # 替换无效字符
         output_file_name = f"{a_end_hostname}.txt"  # 使用“A End Hostname”作为文件名
-        output_file_path = os.path.join(desktop_path, output_file_name)
+        output_file_path = os.path.join(os.path.dirname(file_path), output_file_name)  # 保存到同一目录
 
         # 根据 Slot 选择模板
         slot = row["Slot"]
@@ -91,12 +111,15 @@ try:
             vlan_config = ""
 
         # 根据 Speed 列处理速度配置
-        speed_value = row["Speed(100M/1G/10G/Auto)"]
+        speed_value = row["Speed(100M/1G/10G/Auto)"]  # 使用处理后的列名
         if speed_value == "Auto":
             speed_config = ""  # 不配置 {SpeedConfig}
             negotiation_config = ""  # 不配置 negotiation 行
         elif speed_value == "10G":
             speed_config = "speed 10000"
+            negotiation_config = "negotiation disable"  # 只在10GE模板中加
+        elif speed_value == "1G":
+            speed_config = "speed 1000"
             negotiation_config = "negotiation disable"  # 只在10GE模板中加
         else:
             speed_config = f"speed {speed_value}"
@@ -124,3 +147,5 @@ except ValueError as ve:
     print(f"发生错误: {ve}. 请确认工作表名称是否正确。")
 except Exception as e:
     print(f"发生错误: {e}. 请检查文件格式和内容。")
+
+

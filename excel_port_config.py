@@ -34,6 +34,10 @@ def generate_config(row):
         speed_value = "10000"
     elif speed_value == "1G":
         speed_value = "1000"
+    elif speed_value == "a-1000":
+        speed_value = "1000"
+    elif speed_value == "a-100":
+        speed_value = "100"
 
     speed_config = f"speed {speed_value}" if speed_value != "Auto" else ""
 

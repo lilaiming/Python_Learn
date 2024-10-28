@@ -59,13 +59,15 @@ ip_list = read_ip_list('../2.ip_list.txt')
 # 使用多线程处理每个IP地址
 with ThreadPoolExecutor(max_workers=5) as executor:
     for ip in ip_list:
-        community = 'ANprd2RO'  # 输入交换机配置的community
+        community = 'MCNdev2RO'  # 输入交换机配置的community
+        # community = 'ANdev2RO'  # 输入交换机配置的community
         executor.submit(test_snmp_v2, ip, community)
 
-# # 交换机配置：
+# 交换机配置：
 # snmp-agent
 # snmp-agent trap enable
 # y
 # snmp-agent sys-info version v2c
-# snmp-agent community read cipher Password
+# snmp-agent community read cipher MCNdev2RO
+# snmp-agent community read cipher ANdev2RO
 

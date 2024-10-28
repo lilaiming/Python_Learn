@@ -28,8 +28,8 @@ def process_ip(ip):
     try:
         with ConnectHandler(**connection_info) as conn:
             print(f"已经成功登录交换机 {ip}")
-            # output = conn.send_config_from_file('2.cfg.cmd.txt')
-            # print(output)
+            output = conn.send_config_from_file('2.cfg.cmd.txt')
+            print(output)
 
             # output = conn.send_command('dis cu | in loghost')
             # print(output)

@@ -55,8 +55,8 @@ ip_list = read_ip_list('../2.ip_list.txt')
 
 # SNMP v3 配置信息
 username = 'snmp_immd'
-auth_password = 'Password'
-priv_password = 'Password'
+auth_password = 'Passwrod'
+priv_password = 'Passwrod'
 auth_protocol = usmHMACSHAAuthProtocol
 priv_protocol = usmDESPrivProtocol
 # auth_protocol = usmHMACSHA2-256AuthProtocol
@@ -79,7 +79,7 @@ with ThreadPoolExecutor(max_workers=5) as executor:
 # snmp-agent group v3 snmp_immd authentication
 # snmp-agent group v3 snmp_immd privacy  read-view iso write-view iso notify-view iso
 # snmp-agent mib-view included iso iso
-# snmp-agent usm-user v3 snmp_immd snmp_immd cipher authentication-mode sha Password privacy-mode des56 Password
+# snmp-agent usm-user v3 snmp_immd snmp_immd cipher authentication-mode sha Passwrod privacy-mode des56 Passwrod
 # #
 
 
@@ -93,8 +93,8 @@ with ThreadPoolExecutor(max_workers=5) as executor:
 # snmp-agent usm-user v3 snmp_immd
 # snmp-agent usm-user v3 snmp_immd group snmp_immd
 # snmp-agent usm-user v3 snmp_immd authentication-mode sha
-# Password
-# Password
+# Passwrod
+# Passwrod
 # snmp-agent usm-user v3 snmp_immd privacy-mode des56
-# Password
-# Password
+# Passwrod
+# Passwrod

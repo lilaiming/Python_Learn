@@ -44,7 +44,7 @@ def process_ip(ip):
 
     try:
         conn = ConnectHandler(**connection_info)
-        output = conn.send_command('display interface Eth-Trunk')
+        output = conn.send_command('display current-configuration')
 
         for cmd in commands:
             count = output.count(cmd)

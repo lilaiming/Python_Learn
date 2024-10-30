@@ -58,9 +58,8 @@ def process_ip(ip):
         output = conn.send_command_timing('display current-configuration')
 
         for command in commands:
-            output += f"\n"
-            output += f"Command: {command}\n"
-            output += conn.send_command(command) + '\n\n'
+            output += f"\nCommand: {command}\n"
+            output += conn.send_command(command) + '\n'
 
         match = re.search(r"sysname\s+(\w+(?:-\w+)*)", output)
         if match:

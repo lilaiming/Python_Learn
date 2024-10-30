@@ -12,23 +12,7 @@ ip_list_file = '2.ip_list.txt'
 ip_list = []
 
 commands = [
-    'display current-configuration',
-    'display lldp neighbor brief',
-    'display ip routing-table',
-    'display ospf routing',
-    'display interface brief',
-    'display ip interface brief',
-    'display dfs-group 1 m-lag',
-    'display dfs-group 1 m-lag brief',
-    'display vlan summary',
-    'display vlan',
-    'display arp',
-    'display mac-address',
-    'display version',
-    'display esn',
-    'display device manufacture-info',
-    'display device',
-    'display license'
+    'dis current-configuration',
 ]
 
 # 读取IP列表并存储到ip_list列表中
@@ -50,6 +34,8 @@ def process_ip(ip):
         'username': 'pccw2023',
         'password': 'P@ssw0rd',
         'global_delay_factor': 3,  # 增加全局延迟因子
+        'timeout': 10,             # 连接超时时间（单位：秒）
+        'read_timeout': 120  # 读取超时时间（单位：秒），增加到120秒
 
     }
 

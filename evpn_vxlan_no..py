@@ -10,7 +10,7 @@ bridge-domain xxx
 vxlan vni 140xxx split-horizon-mode
 evpn binding vpn-instance MCN_DEV bd-tag xxx
 #
-interface Eth-Trunk 28.xxx mode l2
+interface Eth-Trunk 100.xxx mode l2
 encapsulation dot1q vid xxx
 rewrite pop single
 bridge-domain xxx
@@ -21,7 +21,7 @@ vni 140xxx head-end peer-list protocol bgp
 # modify vni 110，AN_DEV|MCN_DEV，Eth-Trunk 200.
 # modify list vlan no.
 list= [
-483,500
+907, 909, 915, 917, 921, 922
 ]
 
 list2 =[]

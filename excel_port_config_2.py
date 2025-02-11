@@ -2,6 +2,7 @@
 # 本脚由lilaiming编写，用于学习使用！
 # Email: essid@qq.com
 
+import re
 import pandas as pd
 import os
 import tkinter as tk
@@ -18,8 +19,18 @@ def select_file():
 
 def generate_config(row):
     """生成配置内容"""
+    # 处理 VLAN no，只保留数字并用逗号分隔
+    vlan_no = row["VLAN no"]
+    if isinstance(vlan_no, str):
+        # 使用正则表达式提取所有数字
+        vlan_numbers = re.findall(r'\d+', vlan_no)
+        # 用逗号分隔数字
+        vlan_no = ','.join(vlan_numbers)
+    else:
+        vlan_no = str(vlan_no)
+
     link_type = "port link-type access" if row["Access / Trunk Mode"] == "Access" else "port link-type trunk"
-    vlan_config = f"port default vlan {row['VLAN no']}" if row["Access / Trunk Mode"] == "Access" else f"undo port trunk allow-pass vlan 1\n port trunk allow-pass vlan {row['VLAN no']}"
+    vlan_config = f"port default vlan {vlan_no}" if row["Access / Trunk Mode"] == "Access" else f"undo port trunk allow-pass vlan 1\n port trunk allow-pass vlan {vlan_no}"
 
     # 处理速度配置
     speed_value = row["Speed(100M/1G/10G/Auto)"]
@@ -33,6 +44,8 @@ def generate_config(row):
         speed_value = "1000"
     elif speed_value == "a-100":
         speed_value = "100"
+    elif speed_value == "100M":
+        speed_value = "100"
 
     speed_config = f"speed {speed_value}" if speed_value != "Auto" else ""
 
@@ -44,11 +57,22 @@ def generate_config(row):
         elif "GE" in row["Slot"]:
             negotiation_config = "undo negotiation auto"  # 在GE模板中配置
 
+    # 如果是 Access 模式，添加额外命令
+    extra_commands = ""
+    if row["Access / Trunk Mode"] == "Access":
+        extra_commands = (
+            "stp edged-port enable\n"
+            " storm suppression unknown-unicast 85\n"
+            " storm suppression multicast 85\n"
+            " storm suppression broadcast 85\n"
+        )
+
     return {
         "LinkType": link_type,
         "VLANConfig": vlan_config,
         "NegotiationConfig": negotiation_config,
         "SpeedConfig": speed_config,
+        "ExtraCommands": extra_commands,  # 添加额外命令
     }
 
 
@@ -83,6 +107,9 @@ def main():
 
         # 提取所需的列
         extracted_data = df[columns_to_extract].fillna("").astype(str)
+        # 去掉 "B-end Information" 中的换行符
+        extracted_data["B-end Information"] = extracted_data["B-end Information"].str.replace('\n', '', regex=False)
+
 
         # 配置模板
         templates = {
@@ -94,6 +121,7 @@ def main():
                 " {VLANConfig}\n"
                 " {NegotiationConfig}\n"  # 将 negotiation 配置放在这里
                 " {SpeedConfig}\n"
+                " {ExtraCommands}\n"  # 添加 ExtraCommands
                 "#\n"
             ),
             "25GE": (
@@ -112,6 +140,7 @@ def main():
                 " {VLANConfig}\n"
                 " {NegotiationConfig}\n"  # 将 negotiation 配置放在这里
                 " {SpeedConfig}\n"
+                " {ExtraCommands}\n"  # 添加 ExtraCommands
                 "#\n"
             )
         }
@@ -134,7 +163,9 @@ def main():
                 LinkType=config_data["LinkType"],
                 VLANConfig=config_data["VLANConfig"],
                 NegotiationConfig=config_data["NegotiationConfig"],
-                SpeedConfig=config_data["SpeedConfig"]
+                SpeedConfig=config_data["SpeedConfig"],
+                ExtraCommands=config_data["ExtraCommands"],  # 确保插入 ExtraCommands
+
             )
 
             output_file_name = f"{hostname}.txt"

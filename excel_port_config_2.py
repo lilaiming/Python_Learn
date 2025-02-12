@@ -24,8 +24,8 @@ def generate_config(row):
     if isinstance(vlan_no, str):
         # 使用正则表达式提取所有数字
         vlan_numbers = re.findall(r'\d+', vlan_no)
-        # 用逗号分隔数字
-        vlan_no = ','.join(vlan_numbers)
+        # 用空格分隔数字
+        vlan_no = ' '.join(vlan_numbers)
     else:
         vlan_no = str(vlan_no)
 
@@ -57,15 +57,23 @@ def generate_config(row):
         elif "GE" in row["Slot"]:
             negotiation_config = "undo negotiation auto"  # 在GE模板中配置
 
-    # 如果是 Access 模式，添加额外命令
+    # 如果是 Access 模式，根据 Slot 确定额外命令
     extra_commands = ""
     if row["Access / Trunk Mode"] == "Access":
-        extra_commands = (
-            "stp edged-port enable\n"
-            " storm suppression unknown-unicast 85\n"
-            " storm suppression multicast 85\n"
-            " storm suppression broadcast 85\n"
-        )
+        if "10GE" in row["Slot"]:
+            extra_commands = (
+                "stp edged-port enable\n"
+                "storm suppression unknown-unicast 85\n"
+                "storm suppression multicast 85\n"
+                "storm suppression broadcast 85\n"
+            )
+        elif "GE" in row["Slot"]:
+            extra_commands = (
+                "stp edged-port enable\n"
+                "storm-control broadcast min-rate 85 max-rate 85\n"
+                "storm-control multicast min-rate 85 max-rate 85\n"
+                "storm-control unicast min-rate 85 max-rate 85\n"
+            )
 
     return {
         "LinkType": link_type,

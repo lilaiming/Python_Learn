@@ -27,7 +27,7 @@ def generate_group_numbers(start_number, end_number, select_count, number_of_gro
 start_number = 1  # 随机数字的起始范围
 end_number = 49  # 随机数字的结束范围
 select_count = 6  # 每组随机数字中选择的数量
-number_of_groups = 1  # 需要生成的随机数字组的数量
+number_of_groups = 10  # 需要生成的随机数字组的数量
 
 # 创建保存日志的文件夹
 folder_path = os.path.join(os.path.expanduser('~'), 'Desktop', 'output_folder')  # 定义文件夹路径

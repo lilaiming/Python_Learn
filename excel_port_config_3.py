@@ -135,6 +135,9 @@ def main():
             ),
             "25GE": (
                 "#\n"
+                "interface range 25GE 1/0/1 to 25GE 1/0/48\n"
+                " port mode 10G\n"
+                "#\n"
                 "interface 25GE {Port}\n"
                 " description To_{Description}\n"
                 " {LinkType}\n"
@@ -193,7 +196,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-

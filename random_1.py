@@ -6,7 +6,7 @@ import random
 import time
 
 # 提供的数字（请替换为您提供的数字）
-target_numbers = {1, 2, 3, 4, 5, 6}
+target_numbers = {33,34,39,41,43,44}
 # 随机次数计数
 attempts = 0
 

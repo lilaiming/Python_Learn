@@ -51,7 +51,7 @@ def get_device_name(ip, username, auth_protocol, auth_password, priv_protocol, p
         print(f"设备名称： {varBinds[0][1].prettyPrint()}")
 
 # 读取IP地址列表文件
-ip_list = read_ip_list('../2.ip_list.txt')
+ip_list = read_ip_list('../Immd/2.ip_list.txt')
 
 # SNMP v3 配置信息
 username = 'snmp_immd'

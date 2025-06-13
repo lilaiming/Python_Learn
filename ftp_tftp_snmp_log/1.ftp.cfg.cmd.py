@@ -4,7 +4,7 @@
 
 from netmiko import ConnectHandler
 
-with open('../2.ip_list.txt') as f:
+with open('../Immd/2.ip_list.txt') as f:
     for ips in f.readlines():
         ip = ips.strip()
         connection_info = {

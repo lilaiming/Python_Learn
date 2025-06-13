@@ -54,7 +54,7 @@ def get_device_name(ip, community):
 
 
 # 读取IP地址列表文件
-ip_list = read_ip_list('../2.ip_list.txt')
+ip_list = read_ip_list('../Immd/2.ip_list.txt')
 
 # 使用多线程处理每个IP地址
 with ThreadPoolExecutor(max_workers=5) as executor:

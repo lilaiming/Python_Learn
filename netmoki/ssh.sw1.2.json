@@ -1,0 +1,20 @@
+[
+  {
+    "name": "SW1",
+    "connection": {
+       "device_type": "huawei",
+          "host": "192.168.56.110",
+          "username": "pccw2023",
+          "password": "P@ssw0rd"
+    }
+  },
+  {
+    "name": "SW2",
+    "connection": {
+       "device_type": "huawei",
+          "host": "192.168.56.111",
+          "username": "admin",
+          "password": "P@ssw0rd"
+    }
+  }
+]

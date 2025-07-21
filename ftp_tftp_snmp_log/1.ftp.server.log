@@ -1,0 +1,313 @@
+[I 2024-03-08 10:45:18] concurrency model: async
+[I 2024-03-08 10:45:18] masquerade (NAT) address: None
+[I 2024-03-08 10:45:18] passive ports: 2000->2332
+[I 2024-03-08 10:45:18] >>> starting FTP server on 0.0.0.0:21, pid=18260 <<<
+[I 2024-03-08 12:35:02] concurrency model: async
+[I 2024-03-08 12:35:02] masquerade (NAT) address: None
+[I 2024-03-08 12:35:02] passive ports: 2000->2332
+[I 2024-03-08 12:35:02] >>> starting FTP server on 192.168.56.1:21, pid=2224 <<<
+[I 2024-03-08 14:49:07] concurrency model: async
+[I 2024-03-08 14:49:07] masquerade (NAT) address: None
+[I 2024-03-08 14:49:07] passive ports: 2000->2332
+[I 2024-03-08 14:49:07] >>> starting FTP server on 192.168.56.1:21, pid=19608 <<<
+[I 2024-03-08 14:49:42] concurrency model: async
+[I 2024-03-08 14:49:42] masquerade (NAT) address: None
+[I 2024-03-08 14:49:42] passive ports: 2000->2332
+[I 2024-03-08 14:49:42] >>> starting FTP server on 10.26.119.88:21, pid=1484 <<<
+[I 2024-03-08 14:50:14] 10.26.119.125:53056-[] FTP session opened (connect)
+[I 2024-03-08 14:50:18] 10.26.119.125:53056-[admin] USER 'admin' logged in.
+[I 2024-03-08 14:51:29] 10.26.119.125:53056-[admin] FTP session closed (disconnect).
+[I 2024-03-08 14:52:06] 10.26.119.125:50899-[] FTP session opened (connect)
+[I 2024-03-08 14:52:10] 10.26.119.125:50899-[admin] USER 'admin' logged in.
+[I 2024-03-08 14:52:36] 10.26.119.125:50899-[admin] STOR D:\safedata3_writetopdt.txt completed=1 bytes=592 seconds=0.016
+[I 2024-03-08 14:53:45] 10.26.119.125:50899-[admin] RETR D:\test.txt completed=1 bytes=4 seconds=0.0
+[I 2024-03-08 14:53:49] 10.26.119.125:50899-[admin] FTP session closed (disconnect).
+[I 2024-03-08 15:00:40] concurrency model: async
+[I 2024-03-08 15:00:40] masquerade (NAT) address: None
+[I 2024-03-08 15:00:40] passive ports: 2000->2332
+[I 2024-03-08 15:00:40] >>> starting FTP server on 0.0.0.0:21, pid=26560 <<<
+[I 2024-03-08 15:00:55] 10.26.119.125:52178-[] FTP session opened (connect)
+[I 2024-03-08 15:00:59] 10.26.119.125:52178-[admin] USER 'admin' logged in.
+[I 2024-03-08 15:01:02] 10.26.119.125:52178-[admin] FTP session closed (disconnect).
+[I 2024-03-08 15:05:17] received interrupt signal
+[I 2024-03-08 15:05:17] >>> shutting down FTP server, 1 socket(s), pid=26560 <<<
+[I 2024-03-08 15:07:16] concurrency model: async
+[I 2024-03-08 15:07:16] masquerade (NAT) address: None
+[I 2024-03-08 15:07:16] passive ports: 2000->2332
+[I 2024-03-08 15:07:16] >>> starting FTP server on 0.0.0.0:21, pid=15080 <<<
+[I 2024-03-08 15:07:27] 10.26.119.125:53590-[] FTP session opened (connect)
+[I 2024-03-08 15:07:31] 10.26.119.125:53590-[admin] USER 'admin' logged in.
+[I 2024-03-08 15:07:33] 10.26.119.125:53590-[admin] STOR C:\Users\lilm6\Desktop\test.txt completed=1 bytes=4 seconds=0.0
+[I 2024-03-08 15:07:36] 10.26.119.125:53590-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=4 seconds=0.0
+[I 2024-03-08 15:07:38] 10.26.119.125:53590-[admin] FTP session closed (disconnect).
+[I 2024-03-08 15:10:27] concurrency model: async
+[I 2024-03-08 15:10:27] masquerade (NAT) address: None
+[I 2024-03-08 15:10:27] passive ports: 2000->2332
+[I 2024-03-08 15:10:27] >>> starting FTP server on 0.0.0.0:21, pid=19876 <<<
+[I 2024-03-08 15:11:03] 192.168.56.110:53272-[] FTP session opened (connect)
+[I 2024-03-08 15:11:07] 192.168.56.110:53272-[admin] USER 'admin' logged in.
+[I 2024-03-08 15:11:10] 192.168.56.110:53272-[admin] STOR C:\Users\lilm6\Desktop\test.cfg completed=1 bytes=2416 seconds=0.047
+[I 2024-03-08 15:11:12] 192.168.56.110:53272-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=4 seconds=0.0
+[I 2024-03-08 15:11:14] 192.168.56.110:53272-[admin] FTP session closed (disconnect).
+[I 2024-03-11 11:07:38] concurrency model: async
+[I 2024-03-11 11:07:38] masquerade (NAT) address: None
+[I 2024-03-11 11:07:38] passive ports: 2000->2332
+[I 2024-03-11 11:07:38] >>> starting FTP server on 0.0.0.0:21, pid=23984 <<<
+[I 2024-03-11 11:08:38] 192.168.56.110:65336-[] FTP session opened (connect)
+[I 2024-03-11 11:08:42] 192.168.56.110:65336-[admin] USER 'admin' logged in.
+[I 2024-03-11 11:08:45] 192.168.56.110:65336-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=4 seconds=0.032
+[I 2024-03-11 11:08:47] 192.168.56.110:65336-[admin] STOR C:\Users\lilm6\Desktop\test.cfg completed=1 bytes=2416 seconds=0.032
+[I 2024-03-11 11:08:49] 192.168.56.110:65336-[admin] FTP session closed (disconnect).
+[I 2024-03-11 11:11:47] 192.168.56.110:59253-[] FTP session opened (connect)
+[I 2024-03-11 11:11:51] 192.168.56.110:59253-[admin] USER 'admin' logged in.
+[I 2024-03-11 11:11:53] 192.168.56.110:59253-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=4 seconds=0.0
+[I 2024-03-11 11:11:56] 192.168.56.110:59253-[admin] FTP session closed (disconnect).
+[I 2024-03-11 11:13:21] 192.168.56.110:54073-[] FTP session opened (connect)
+[I 2024-03-11 11:13:25] 192.168.56.110:54073-[admin] USER 'admin' logged in.
+[I 2024-03-11 11:13:27] 192.168.56.110:54073-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=4 seconds=0.032
+[I 2024-03-11 11:13:29] 192.168.56.110:54073-[admin] FTP session closed (disconnect).
+[I 2024-03-12 14:54:46] concurrency model: async
+[I 2024-03-12 14:54:46] masquerade (NAT) address: None
+[I 2024-03-12 14:54:46] passive ports: 2000->2332
+[I 2024-03-12 14:54:46] >>> starting FTP server on 0.0.0.0:21, pid=3844 <<<
+[I 2024-03-12 16:50:10] concurrency model: async
+[I 2024-03-12 16:50:10] masquerade (NAT) address: None
+[I 2024-03-12 16:50:10] passive ports: 2000->2332
+[I 2024-03-12 16:50:10] >>> starting FTP server on 0.0.0.0:21, pid=19556 <<<
+[I 2024-03-12 17:23:09] concurrency model: async
+[I 2024-03-12 17:23:09] masquerade (NAT) address: None
+[I 2024-03-12 17:23:09] passive ports: 2000->2332
+[I 2024-03-12 17:23:09] >>> starting FTP server on 0.0.0.0:21, pid=21472 <<<
+[I 2024-03-12 17:23:19] 192.168.56.110:53455-[] FTP session opened (connect)
+[I 2024-03-12 17:23:24] 192.168.56.110:53455-[admin] USER 'admin' logged in.
+[I 2024-03-12 17:23:32] 192.168.56.110:53455-[admin] RETR C:\Users\lilm6\Desktop\test111.txt completed=1 bytes=6 seconds=0.0
+[I 2024-03-12 17:24:33] 192.168.56.110:53455-[admin] FTP session closed (disconnect).
+[I 2024-03-12 17:35:59] concurrency model: async
+[I 2024-03-12 17:35:59] masquerade (NAT) address: None
+[I 2024-03-12 17:35:59] passive ports: 2000->2332
+[I 2024-03-12 17:35:59] >>> starting FTP server on 0.0.0.0:21, pid=7064 <<<
+[I 2024-03-12 17:36:05] 192.168.56.110:61592-[] FTP session opened (connect)
+[I 2024-03-12 17:36:08] 192.168.56.110:61592-[admin] USER 'admin' logged in.
+[I 2024-03-12 17:36:14] 192.168.56.110:61592-[admin] RETR C:\Users\lilm6\Desktop\test111.txt completed=1 bytes=6 seconds=0.032
+[I 2024-03-12 17:36:15] 192.168.56.110:61592-[admin] FTP session closed (disconnect).
+[I 2024-03-13 10:29:13] concurrency model: async
+[I 2024-03-13 10:29:13] masquerade (NAT) address: None
+[I 2024-03-13 10:29:13] passive ports: 2000->2332
+[I 2024-03-13 10:29:13] >>> starting FTP server on 0.0.0.0:21, pid=14996 <<<
+[I 2024-03-13 10:54:51] 192.168.56.110:55254-[] FTP session opened (connect)
+[I 2024-03-13 10:54:53] 192.168.56.110:55254-[] FTP session closed (disconnect).
+[I 2024-03-13 10:55:02] 192.168.56.110:55958-[] FTP session opened (connect)
+[I 2024-03-13 10:55:05] 192.168.56.110:55958-[admin] USER 'admin' logged in.
+[I 2024-03-13 10:55:06] 192.168.56.110:55958-[admin] FTP session closed (disconnect).
+[I 2024-03-13 11:18:36] 192.168.56.110:53232-[] FTP session opened (connect)
+[I 2024-03-13 11:18:39] 192.168.56.110:53232-[admin] USER 'admin' logged in.
+[I 2024-03-13 11:18:41] 192.168.56.110:53232-[admin] FTP session closed (disconnect).
+[I 2024-03-13 11:32:20] concurrency model: async
+[I 2024-03-13 11:32:20] masquerade (NAT) address: None
+[I 2024-03-13 11:32:20] passive ports: 2000->2332
+[I 2024-03-13 11:32:20] >>> starting FTP server on 0.0.0.0:21, pid=26292 <<<
+[I 2024-03-13 11:32:26] 192.168.56.110:61837-[] FTP session opened (connect)
+[I 2024-03-13 11:32:29] 192.168.56.110:61837-[admin] USER 'admin' logged in.
+[I 2024-03-13 11:32:30] 192.168.56.110:61837-[admin] FTP session closed (disconnect).
+[I 2024-03-13 11:35:23] 192.168.56.110:50739-[] FTP session opened (connect)
+[I 2024-03-13 11:35:24] 192.168.56.110:50739-[] FTP session closed (disconnect).
+[I 2024-03-13 11:38:19] concurrency model: async
+[I 2024-03-13 11:38:19] masquerade (NAT) address: None
+[I 2024-03-13 11:38:19] passive ports: 2000->2332
+[I 2024-03-13 11:38:19] >>> starting FTP server on 0.0.0.0:21, pid=22568 <<<
+[I 2024-03-13 11:38:25] 192.168.56.110:52540-[] FTP session opened (connect)
+[I 2024-03-13 11:38:25] 192.168.56.110:52540-[] FTP session closed (disconnect).
+[I 2024-03-13 11:39:42] 192.168.56.110:59765-[] FTP session opened (connect)
+[I 2024-03-13 11:39:43] 192.168.56.110:59765-[] FTP session closed (disconnect).
+[I 2024-03-13 11:42:03] concurrency model: async
+[I 2024-03-13 11:42:03] masquerade (NAT) address: None
+[I 2024-03-13 11:42:03] passive ports: 2000->2332
+[I 2024-03-13 11:42:03] >>> starting FTP server on 0.0.0.0:21, pid=26040 <<<
+2024-03-13 12:23:28,203 - INFO - concurrency model: async
+2024-03-13 12:23:28,204 - INFO - masquerade (NAT) address: None
+2024-03-13 12:23:28,204 - INFO - passive ports: 2000->2332
+2024-03-13 12:23:28,204 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=10188 <<<
+2024-03-13 12:23:46,794 - INFO - 192.168.56.110:60405-[] FTP session opened (connect)
+2024-03-13 12:23:52,409 - INFO - 192.168.56.110:60405-[anonymous] USER 'anonymous' logged in.
+2024-03-13 12:23:56,434 - INFO - 192.168.56.110:60405-[anonymous] FTP session closed (disconnect).
+2024-03-13 12:23:57,851 - INFO - 192.168.56.110:63754-[] FTP session opened (connect)
+2024-03-13 12:24:03,089 - INFO - 192.168.56.110:63754-[] USER 'aaa' failed login.
+2024-03-13 12:24:03,104 - INFO - 192.168.56.110:63754-[] FTP session closed (disconnect).
+2024-03-13 13:51:13,322 - INFO - 192.168.56.110:55700-[] FTP session opened (connect)
+2024-03-13 13:51:19,508 - INFO - 192.168.56.110:55700-[] USER 'a' failed login.
+2024-03-13 13:51:19,528 - INFO - 192.168.56.110:55700-[] FTP session closed (disconnect).
+2024-03-13 13:55:23,170 - INFO - concurrency model: async
+2024-03-13 13:55:23,170 - INFO - masquerade (NAT) address: None
+2024-03-13 13:55:23,170 - INFO - passive ports: 2000->2332
+2024-03-13 13:55:23,171 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=17332 <<<
+2024-03-13 13:56:03,201 - INFO - 192.168.56.110:52054-[] FTP session opened (connect)
+2024-03-13 13:56:06,008 - INFO - 192.168.56.110:52054-[admin] USER 'admin' logged in.
+2024-03-13 13:56:14,860 - INFO - 192.168.56.110:52054-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=6 seconds=0.032
+2024-03-13 13:56:15,858 - INFO - 192.168.56.110:52054-[admin] FTP session closed (disconnect).
+2024-03-13 14:00:22,206 - INFO - concurrency model: async
+2024-03-13 14:00:22,207 - INFO - masquerade (NAT) address: None
+2024-03-13 14:00:22,207 - INFO - passive ports: 2000->2332
+2024-03-13 14:00:22,207 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=10856 <<<
+2024-03-13 14:12:36,396 - INFO - concurrency model: async
+2024-03-13 14:12:36,397 - INFO - masquerade (NAT) address: None
+2024-03-13 14:12:36,397 - INFO - passive ports: 2000->2332
+2024-03-13 14:12:36,397 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=27532 <<<
+2024-03-13 14:43:14,447 - INFO - concurrency model: async
+2024-03-13 14:43:14,448 - INFO - masquerade (NAT) address: None
+2024-03-13 14:43:14,448 - INFO - passive ports: 2000->2332
+2024-03-13 14:43:14,448 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=3236 <<<
+2024-03-13 14:45:19,215 - INFO - concurrency model: async
+2024-03-13 14:45:19,215 - INFO - masquerade (NAT) address: None
+2024-03-13 14:45:19,215 - INFO - passive ports: 2000->2332
+2024-03-13 14:45:19,215 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=14876 <<<
+2024-03-13 15:04:40,354 - INFO - concurrency model: async
+2024-03-13 15:04:40,354 - INFO - masquerade (NAT) address: None
+2024-03-13 15:04:40,354 - INFO - passive ports: 2000->2332
+2024-03-13 15:04:40,355 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=17660 <<<
+2024-03-13 15:04:51,915 - INFO - 192.168.56.110:50717-[] FTP session opened (connect)
+2024-03-13 15:05:22,218 - INFO - 192.168.56.110:50717-[] FTP session closed (disconnect).
+2024-03-13 15:05:29,313 - INFO - 192.168.56.110:58096-[] FTP session opened (connect)
+2024-03-13 15:05:33,356 - INFO - 192.168.56.110:58096-[anonymous] USER 'anonymous' logged in.
+2024-03-13 15:05:35,305 - INFO - 192.168.56.110:58096-[anonymous] FTP session closed (disconnect).
+2024-03-13 15:09:09,580 - INFO - concurrency model: async
+2024-03-13 15:09:09,580 - INFO - masquerade (NAT) address: None
+2024-03-13 15:09:09,581 - INFO - passive ports: 2000->2332
+2024-03-13 15:09:09,581 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=22684 <<<
+2024-03-13 15:09:13,632 - INFO - 192.168.56.110:53384-[] FTP session opened (connect)
+2024-03-13 15:09:23,238 - INFO - 192.168.56.110:53384-[] USER 'anonymous' failed login.
+2024-03-13 15:09:23,252 - INFO - 192.168.56.110:53384-[] FTP session closed (disconnect).
+2024-03-13 15:09:33,107 - INFO - 192.168.56.110:51396-[] FTP session opened (connect)
+2024-03-13 15:09:39,551 - INFO - 192.168.56.110:51396-[] USER 'anonymous' failed login.
+2024-03-13 15:09:39,571 - INFO - 192.168.56.110:51396-[] FTP session closed (disconnect).
+2024-03-13 15:30:13,689 - INFO - 192.168.56.110:55760-[] FTP session opened (connect)
+2024-03-13 15:30:18,861 - INFO - 192.168.56.110:55760-[] USER 'a' failed login.
+2024-03-13 15:30:18,882 - INFO - 192.168.56.110:55760-[] FTP session closed (disconnect).
+2024-03-13 15:36:44,946 - INFO - 192.168.56.110:55564-[] FTP session opened (connect)
+2024-03-13 15:36:49,343 - INFO - 192.168.56.110:55564-[admin] USER 'admin' logged in.
+2024-03-13 15:37:10,362 - INFO - 192.168.56.110:55564-[admin] FTP session closed (disconnect).
+2024-03-13 15:37:42,035 - INFO - 192.168.56.110:61805-[] FTP session opened (connect)
+2024-03-13 15:37:46,449 - INFO - 192.168.56.110:61805-[admin] USER 'admin' logged in.
+2024-03-13 15:37:48,826 - INFO - 192.168.56.110:61805-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=6 seconds=0.015
+2024-03-13 15:37:51,034 - INFO - 192.168.56.110:61805-[admin] FTP session closed (disconnect).
+2024-03-13 15:39:40,880 - INFO - 192.168.56.110:56670-[] FTP session opened (connect)
+2024-03-13 15:39:45,275 - INFO - 192.168.56.110:56670-[admin] USER 'admin' logged in.
+2024-03-13 15:40:06,299 - INFO - 192.168.56.110:56670-[admin] FTP session closed (disconnect).
+2024-03-13 15:40:32,956 - INFO - 192.168.56.110:62901-[] FTP session opened (connect)
+2024-03-13 15:40:37,357 - INFO - 192.168.56.110:62901-[admin] USER 'admin' logged in.
+2024-03-13 15:40:39,619 - INFO - 192.168.56.110:62901-[admin] STOR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=6 seconds=0.031
+2024-03-13 15:40:41,765 - INFO - 192.168.56.110:62901-[admin] FTP session closed (disconnect).
+2024-03-13 15:40:54,413 - INFO - 192.168.56.110:51028-[] FTP session opened (connect)
+2024-03-13 15:40:58,798 - INFO - 192.168.56.110:51028-[admin] USER 'admin' logged in.
+2024-03-13 15:41:01,074 - INFO - 192.168.56.110:51028-[admin] STOR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=6 seconds=0.047
+2024-03-13 15:41:03,218 - INFO - 192.168.56.110:51028-[admin] FTP session closed (disconnect).
+2024-03-13 15:42:53,928 - INFO - 192.168.56.110:64498-[] FTP session opened (connect)
+2024-03-13 15:42:58,328 - INFO - 192.168.56.110:64498-[admin] USER 'admin' logged in.
+2024-03-13 15:43:15,104 - INFO - 192.168.56.110:64498-[admin] FTP session closed (disconnect).
+2024-03-13 15:43:44,264 - INFO - 192.168.56.110:65015-[] FTP session opened (connect)
+2024-03-13 15:43:48,655 - INFO - 192.168.56.110:65015-[admin] USER 'admin' logged in.
+2024-03-13 15:44:05,393 - INFO - 192.168.56.110:65015-[admin] FTP session closed (disconnect).
+2024-03-13 15:46:44,033 - INFO - 192.168.56.110:62277-[] FTP session opened (connect)
+2024-03-13 15:46:48,417 - INFO - 192.168.56.110:62277-[admin] USER 'admin' logged in.
+2024-03-13 15:46:50,692 - INFO - 192.168.56.110:62277-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=6 seconds=0.016
+2024-03-13 15:46:52,919 - INFO - 192.168.56.110:62277-[admin] FTP session closed (disconnect).
+2024-03-13 15:48:33,027 - INFO - 192.168.56.110:57679-[] FTP session opened (connect)
+2024-03-13 15:48:39,211 - INFO - 192.168.56.110:57679-[admin] USER 'admin' logged in.
+2024-03-13 15:48:39,546 - INFO - 192.168.56.110:57679-[admin] FTP session closed (disconnect).
+2024-03-13 15:49:05,610 - INFO - 192.168.56.110:49481-[] FTP session opened (connect)
+2024-03-13 15:49:09,994 - INFO - 192.168.56.110:49481-[admin] USER 'admin' logged in.
+2024-03-13 15:49:31,015 - INFO - 192.168.56.110:49481-[admin] FTP session closed (disconnect).
+2024-03-13 16:00:30,341 - INFO - 192.168.56.110:57232-[] FTP session opened (connect)
+2024-03-13 16:00:34,727 - INFO - 192.168.56.110:57232-[admin] USER 'admin' logged in.
+2024-03-13 16:00:36,984 - INFO - 192.168.56.110:57232-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=6 seconds=0.016
+2024-03-13 16:00:39,228 - INFO - 192.168.56.110:57232-[admin] FTP session closed (disconnect).
+2024-03-13 16:00:46,541 - INFO - 192.168.56.111:53961-[] FTP session opened (connect)
+2024-03-13 16:00:50,927 - INFO - 192.168.56.111:53961-[admin] USER 'admin' logged in.
+2024-03-13 16:00:53,195 - INFO - 192.168.56.111:53961-[admin] RETR C:\Users\lilm6\Desktop\test123.txt completed=1 bytes=6 seconds=0.031
+2024-03-13 16:00:55,437 - INFO - 192.168.56.111:53961-[admin] FTP session closed (disconnect).
+2024-03-14 10:59:42,933 - INFO - concurrency model: async
+2024-03-14 10:59:42,933 - INFO - masquerade (NAT) address: None
+2024-03-14 10:59:42,933 - INFO - passive ports: 2000->2332
+2024-03-14 10:59:42,934 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=9072 <<<
+2024-03-14 11:01:48,762 - INFO - concurrency model: async
+2024-03-14 11:01:48,762 - INFO - masquerade (NAT) address: None
+2024-03-14 11:01:48,762 - INFO - passive ports: 2000->2332
+2024-03-14 11:01:48,763 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=21672 <<<
+2024-03-14 11:20:32,595 - INFO - 172.17.191.249:63324-[] FTP session opened (connect)
+2024-03-14 11:20:36,983 - INFO - 172.17.191.249:63324-[admin] USER 'admin' logged in.
+2024-03-14 11:21:49,266 - INFO - 172.17.191.249:63324-[admin] RETR C:\Users\lilm6\Desktop\OS\CE6800_V200R022C00SPC500.cc completed=0 bytes=327680 seconds=70.016
+2024-03-14 11:21:49,275 - INFO - 172.17.191.249:63324-[admin] FTP session closed (disconnect).
+2024-03-14 11:25:47,770 - INFO - concurrency model: async
+2024-03-14 11:25:47,772 - INFO - masquerade (NAT) address: None
+2024-03-14 11:25:47,772 - INFO - passive ports: 2000->2332
+2024-03-14 11:25:47,772 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=10572 <<<
+2024-03-14 11:25:57,998 - INFO - 172.17.191.249:61814-[] FTP session opened (connect)
+2024-03-14 11:26:02,385 - INFO - 172.17.191.249:61814-[admin] USER 'admin' logged in.
+2024-03-14 11:27:19,851 - INFO - 172.17.191.249:61814-[admin] RETR C:\Users\lilm6\Desktop\OS\CE6800_V200R022C00SPC500.cc completed=1 bytes=224237476 seconds=75.219
+2024-03-14 11:27:22,732 - INFO - 172.17.191.249:61814-[admin] FTP session closed (disconnect).
+2024-03-14 11:37:33,795 - INFO - concurrency model: async
+2024-03-14 11:37:33,795 - INFO - masquerade (NAT) address: None
+2024-03-14 11:37:33,795 - INFO - passive ports: 2000->2332
+2024-03-14 11:37:33,795 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=22300 <<<
+2024-03-14 11:37:42,407 - INFO - concurrency model: async
+2024-03-14 11:37:42,409 - INFO - masquerade (NAT) address: None
+2024-03-14 11:37:42,409 - INFO - passive ports: 2000->2332
+2024-03-14 11:37:42,409 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=6980 <<<
+2024-03-14 11:38:12,072 - INFO - concurrency model: async
+2024-03-14 11:38:12,073 - INFO - masquerade (NAT) address: None
+2024-03-14 11:38:12,073 - INFO - passive ports: 2000->2332
+2024-03-14 11:38:12,073 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=1856 <<<
+2024-03-14 11:38:19,954 - INFO - 172.17.191.249:50018-[] FTP session opened (connect)
+2024-03-14 11:38:24,345 - INFO - 172.17.191.249:50018-[admin] USER 'admin' logged in.
+2024-03-14 11:38:45,396 - INFO - 172.17.191.249:50018-[admin] FTP session closed (disconnect).
+2024-03-14 11:39:38,131 - INFO - 172.17.191.249:62742-[] FTP session opened (connect)
+2024-03-14 11:39:42,514 - INFO - 172.17.191.249:62742-[admin] USER 'admin' logged in.
+2024-03-14 11:41:00,122 - INFO - 172.17.191.249:62742-[admin] RETR C:\Users\lilm6\Desktop\OS\CE6800_V200R022C00SPC500-1.cc completed=1 bytes=224237476 seconds=75.359
+2024-03-14 11:41:02,754 - INFO - 172.17.191.249:62742-[admin] FTP session closed (disconnect).
+2024-03-14 11:42:39,140 - INFO - concurrency model: async
+2024-03-14 11:42:39,140 - INFO - masquerade (NAT) address: None
+2024-03-14 11:42:39,140 - INFO - passive ports: 2000->2332
+2024-03-14 11:42:39,140 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=8704 <<<
+2024-03-14 11:42:48,321 - INFO - 172.17.191.249:53564-[] FTP session opened (connect)
+2024-03-14 11:42:52,711 - INFO - 172.17.191.249:53564-[admin] USER 'admin' logged in.
+2024-03-14 11:44:05,007 - INFO - 172.17.191.249:53564-[admin] RETR C:\Users\lilm6\Desktop\OS\CE6800_V200R022C00SPC500-2.cc completed=0 bytes=327680 seconds=70.0
+2024-03-14 11:44:05,010 - INFO - 172.17.191.249:53564-[admin] FTP session closed (disconnect).
+2024-03-14 11:49:53,371 - INFO - concurrency model: async
+2024-03-14 11:49:53,371 - INFO - masquerade (NAT) address: None
+2024-03-14 11:49:53,372 - INFO - passive ports: 2000->2332
+2024-03-14 11:49:53,372 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=11500 <<<
+2024-03-14 11:50:04,559 - INFO - 172.17.191.252:54462-[] FTP session opened (connect)
+2024-03-14 11:50:08,950 - INFO - 172.17.191.252:54462-[admin] USER 'admin' logged in.
+2024-03-14 11:50:41,205 - INFO - 172.17.191.252:54462-[admin] Active data channel timed out.
+2024-03-14 11:50:41,212 - INFO - 172.17.191.252:54462-[admin] FTP session closed (disconnect).
+2024-03-14 11:54:46,488 - INFO - concurrency model: async
+2024-03-14 11:54:46,488 - INFO - masquerade (NAT) address: None
+2024-03-14 11:54:46,488 - INFO - passive ports: 2000->2332
+2024-03-14 11:54:46,488 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=16528 <<<
+2024-03-14 11:54:59,305 - INFO - 172.17.191.252:57026-[] FTP session opened (connect)
+2024-03-14 11:55:03,693 - INFO - 172.17.191.252:57026-[admin] USER 'admin' logged in.
+2024-03-14 11:55:05,956 - INFO - 172.17.191.252:57026-[admin] RETR C:\Users\lilm6\Desktop\OS\test123.txt completed=1 bytes=6 seconds=0.0
+2024-03-14 11:55:10,206 - INFO - 172.17.191.252:57026-[admin] FTP session closed (disconnect).
+2024-03-14 11:56:05,779 - INFO - concurrency model: async
+2024-03-14 11:56:05,779 - INFO - masquerade (NAT) address: None
+2024-03-14 11:56:05,779 - INFO - passive ports: 2000->2332
+2024-03-14 11:56:05,780 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=18920 <<<
+2024-03-14 11:56:36,653 - INFO - 172.17.191.252:52241-[] FTP session opened (connect)
+2024-03-14 11:56:41,042 - INFO - 172.17.191.252:52241-[admin] USER 'admin' logged in.
+2024-03-14 11:56:43,306 - INFO - 172.17.191.252:52241-[admin] RETR C:\Users\lilm6\Desktop\OS\test123.txt completed=1 bytes=6 seconds=0.016
+2024-03-14 11:56:47,555 - INFO - 172.17.191.252:52241-[admin] FTP session closed (disconnect).
+2024-03-14 12:12:47,546 - INFO - concurrency model: async
+2024-03-14 12:12:47,546 - INFO - masquerade (NAT) address: None
+2024-03-14 12:12:47,547 - INFO - passive ports: 2000->2332
+2024-03-14 12:12:47,547 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=26212 <<<
+2024-03-14 12:14:11,030 - INFO - concurrency model: async
+2024-03-14 12:14:11,031 - INFO - masquerade (NAT) address: None
+2024-03-14 12:14:11,031 - INFO - passive ports: 2000->2332
+2024-03-14 12:14:11,031 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=27324 <<<
+2024-03-14 12:18:05,054 - INFO - 172.17.191.252:59877-[] FTP session opened (connect)
+2024-03-14 12:18:09,442 - INFO - 172.17.191.252:59877-[admin] USER 'admin' logged in.
+2024-03-14 12:18:41,688 - INFO - 172.17.191.252:59877-[admin] Active data channel timed out.
+2024-03-14 12:18:41,695 - INFO - 172.17.191.252:59877-[admin] FTP session closed (disconnect).
+2024-03-19 12:57:17,462 - INFO - concurrency model: async
+2024-03-19 12:57:17,462 - INFO - masquerade (NAT) address: None
+2024-03-19 12:57:17,463 - INFO - passive ports: 2000->2332
+2024-03-19 12:57:17,463 - INFO - >>> starting FTP server on 0.0.0.0:21, pid=19604 <<<

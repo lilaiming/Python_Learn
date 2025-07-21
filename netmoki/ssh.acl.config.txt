@@ -1,0 +1,15 @@
+
+acl number 2002
+
+  rule permit source 10.1.10.1 0
+
+  rule permit source 10.1.10.2 0
+
+
+  rule deny source 10.1.10.3 0
+
+  rule deny source 10.1.10.4 0
+
+interface Loopback1
+  ip address 192.168.1.101 255.255.255.0
+  description test101
